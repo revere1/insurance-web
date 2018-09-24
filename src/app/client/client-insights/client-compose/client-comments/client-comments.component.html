@@ -1,0 +1,20 @@
+<div *ngIf="comment" style="margin-left: 30px;">
+  <div *ngFor="let d of comment.children">
+      <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+          <img [src]="serverURL+d.user.user_profile.profile_pic" onError="this.src='assets/img/avatar5.png'" alt="User Pic">
+        </a>  
+      <span class="label label-info">{{d.user.first_name}} {{d.user.last_name}}</span>
+      <p [innerHTML]="d.comment"></p>
+      <span *ngFor="let path of d.insight_comment_attachements">                  
+        <i class="fa fa-paperclip"></i> Attachments                    <p>
+          <a download [href]="serverURL+path"> {{path.orgName}}</a>
+        </p>
+      </span>
+      <span>
+          <a href="javascript:void(0);" (click)="switchForm(d.id)">Reply</a>
+        </span>
+        <app-client-insight-comment-form *ngIf="showForm[d.id]" [replyFor]="replyFor" (UpdateReplyId)="replyToUpdate($event)">
+          </app-client-insight-comment-form>
+      <app-client-comments *ngIf="d.children.length" [data]="d" (SelfUpdateComment)="selfUpdate($event)"></app-client-comments>
+  </div>  
+</div>

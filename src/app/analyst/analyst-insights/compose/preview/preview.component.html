@@ -1,0 +1,126 @@
+<div class="container-fluid">
+  <div *ngIf="finished">
+    <ul class="nav nav-tabs" *ngIf="insightsData?.status !== 'published' && insightsData?.status !== 'submitted' && insightsData?.status !== 'assigned'">
+      <li role="tab">
+        <a *ngIf="type !== 'macro-type'" (click)="navigation()">
+          <i class="fa fa-check-square-o" aria-hidden="true"></i>Pick Ticker</a>
+        <a *ngIf="type === 'macro-type'" (click)="navigation1()">Research Type</a>
+      </li>
+      <li role="tab">
+        <a (click)="navigation1()">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>Compose Insight</a>
+      </li>
+      <li class="active" role="tab">
+        <a (click)="navigation()">
+          <i class="fa fa-file-text" aria-hidden="true"></i>Preview & Publish</a>
+      </li>
+    </ul>
+    <div (ngSubmit)="update(insightsData?.status)" class="form-group" *ngIf="finished">
+      <div class="row">
+        <div [class]="(insightsData?.ticker?.name || Headers.length ) ? 'col-md-9 col-lg-9 col-sm-12' :'col-md-12 col-sm-12'">
+          <div class="col-md-12 col-sm-12 col-xs-12 ">
+            <div class="insight-profile">
+              <div class="company-insight">
+                <div class="company-name">
+                  <p>{{insightsData?.ticker?.company | titlecase}}</p>
+                </div>
+                <div class="username">
+                  <p>{{insightsData?.user?.first_name | titlecase }} {{insightsData?.user?.last_name | titlecase }}</p>
+                </div>
+              </div>
+              <div class="company-title" *ngIf="_utils.inArray(insightsData?.type,['In-depth','quick-note'])">
+                <i class="fa fa-book"></i>
+                <span class="icon-name" [innerHTML]="insightsData.type | titlecase"></span> /
+                <span class="icon-title">{{insightsData?.commodity?.name}}</span>
+              </div>
+              <div class="company-title" *ngIf="(insightsData?.type === 'macro-type')">
+                <i class="fa fa-book"></i>
+                <span>{{insightsData?.macro_type | titlecase}}</span> /
+                <span class="icon-title">{{insightsData?.sector?.name}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <h1 class="user-headline">
+              <div [innerHTML]="insightsData?.headline | titlecase"></div>
+            </h1>
+            <span>{{_utils.toDateString(insightsData?.createdAt)}}</span>
+          </div>
+          <div id="data">
+            <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="_utils.inArray(insightsData?.type,['In-depth','quick-note','macro-type'])">
+              <h5 class="summary">Summary</h5>
+              <p class="img-resize" [innerHTML]="insightsData.summary| safeHtml"></p>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="(insightsData?.type === 'In-depth')">
+              <h5 class="summary">Description:</h5>
+              <p class="img-resize" [innerHTML]="insightsData?.description | safeHtml"></p>
+            </div>
+            <div class="attachments" *ngIf="insightsData?.insight_attachements">
+              <p *ngFor="let file of insightsData.insight_attachements">
+                <a href="{{serverURL+file.path}}" download> {{file.orgName}}</a>
+              </p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-4 submit-button">
+              <button class="btn btn-submit " (click)="update(insightsData?.status)" *ngIf="(insightsData?.status !== 'submitted' && insightsData?.status !== 'assigned' && insightsData?.status !== 'published')">Submit to complaints/Publish</button>
+            </div>
+          </div>
+          <div *ngIf="!submit" style="display: none;">
+            <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="ngxData.data" [gradient]="gradient" [xAxis]="showXAxis"
+              [yAxis]="showYAxis" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel" [autoScale]="autoScale">
+            </ngx-charts-line-chart>
+          </div>
+          <div style="display: none;">
+            <canvas id="canvas" width="800" height="800"></canvas>
+          </div>
+        </div>
+        <div class="col-md-3 col-lg-3 col-sm-3 graph">
+          <div class="analyst-graph">
+            <div class="preview-header" *ngIf="(Headers.length) != 0">
+              <h4>Headers</h4>
+            </div>
+            <div *ngIf="Headers.length != 0">
+              <div *ngFor="let  header of Headers;index as i ">
+                <p id="header{{i}}">{{header}}</p>
+              </div>
+            </div>
+            <div *ngIf="insightsData?.ticker?.name">
+              <div *ngIf="(price != undefined)">
+                <div class="preview-header">
+                  <h4>General Details</h4>
+                </div>
+                <p>Price : {{price}}</p>
+                <p>Market cap : {{insightsData?.ticker?.share_in_issue * price }}(In Millions)</p>
+              </div>
+              <div>
+                <div class="preview-header">
+                  <h4>Share Details</h4>
+                </div>
+                <p>Code : {{insightsData?.ticker?.name}}</p>
+                <p>Listing : {{insightsData?.ticker?.listing_exchange}}</p>
+                <p>Shares in issue : {{insightsData?.ticker?.share_in_issue}}</p>
+              </div>
+              <div>
+                <div class="preview-header">
+                  <h4>Business Description</h4>
+                </div>
+                <p class="preview-desc" [innerHTML]="_utils.getFewWords(_utils.stripTags(insightsData?.ticker?.about | safeHtml),30)">
+                </p>
+              </div>
+              <div *ngIf="(price != undefined)">
+                <div class="preview-header">
+                  <h4>Graph Details</h4>
+                </div>
+                <div class="tab-content no-padding ">
+                  <div id="png-container"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

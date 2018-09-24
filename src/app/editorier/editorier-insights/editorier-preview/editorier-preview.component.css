@@ -1,0 +1,132 @@
+.summary {
+	border-top: 1px solid #dadada;
+	border-bottom: 1px solid #dadada;
+	padding: 10px 0px 10px 0px;
+	border-bottom-style: dashed;
+	border-top-style: dashed;
+}
+
+.icon-name {
+	padding-left: 7px;
+	padding-right: 4px;
+}
+
+.company-name {
+	color: grey;
+}
+
+.finish.ng-star-inserted {
+	text-align: justify;
+	max-width: 87%;
+	margin: 0px 0px 0px 40px;
+}
+
+button.btn.btn-primary {
+	margin-left: 25px;
+	border-radius: 0px;
+}
+
+.user-name {
+	margin-top: -8px;
+}
+
+.user-headline {
+	font-size: 26px;
+}
+
+.assign-button {
+	background-color: #fff;
+	position: fixed;
+	bottom: 0px;
+	padding: 12px 3px 15px 0px;
+}
+
+.main-footer {
+	display: none !important;
+}
+
+.btn-group,
+.btn-group-vertical {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.btn-primary {
+	background-color: #f1592a !important;
+	border-color: #f1592a !important;
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover {
+	background-color: #24a9a7 !important;
+	border-color: #24a9a7 !important;
+}
+
+.preview-header {
+	border-top: 1pt solid #d1d3d4;
+	border-left: 1pt solid #d1d3d4;
+	border-bottom: 1pt solid #d1d3d4;
+	background-color: #d1d3d4;
+	margin-top: 3.00pt;
+}
+
+.preview-header h4 {
+	padding-left: 10px;
+}
+
+.analyst-graph {
+	position: fixed;
+	/* right: 0; */
+	overflow-y: hidden;
+	height: 500px;
+	width: 100%;
+	/* width: 440px; */
+}
+
+.preview-desc {
+	width: 100%;
+	max-width: 300px;
+}
+
+.username {
+	color: #fbb040;
+}
+
+.analyst-graph:hover {
+	overflow-y: scroll;
+}
+
+#data {
+	padding-bottom: 50px;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+	button.btn.btn-primary {
+		width: 100%;
+		margin: 0 auto;
+		margin-top: 10px;
+	}
+	.analyst-graph {
+		display: none;
+	}
+	#data {
+		padding-bottom: 150px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.finish.ng-star-inserted {
+		text-align: justify;
+		max-width: 66%;
+		margin: 0px;
+	}
+	
+}

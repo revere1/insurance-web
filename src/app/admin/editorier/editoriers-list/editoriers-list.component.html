@@ -1,0 +1,35 @@
+<button class="btn btn-primary pull-right" [routerLink]="['/admin/editoriers/create']">Create</button>
+<button class="btn btn-success pull-right margin-r10" (click)="download()">Export</button>
+<br>
+<br>
+<div class="table-responsive">
+  <table datatable [dtOptions]="dtOptions" class="row-border hover table table-bordered">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Created By</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of persons">
+        <td>{{ person.first_name }}</td>
+        <td>{{ person.last_name }}</td>
+        <td>{{ person.email }}</td>
+        <td>{{ person.contact_number }}</td>
+        <td> {{person['user.Name']}}</td>
+        <td>
+          <a [routerLink]="['/admin/editoriers/update',person.id]">
+            <i class="fa fa-pencil"></i>
+          </a>
+        </td>
+      </tr>
+      <tr *ngIf="persons?.length == 0">
+        <td colspan="3" class="no-data-available">No data!</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,132 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.1/css/select2.min.css" rel="stylesheet">
+<ul class="nav nav-tabs">
+    <li class="active" role="tab">
+        <a *ngIf="type !== 'macro-type'">
+            <span>
+                <i class="fa fa-check-square-o" aria-hidden="true"></i>
+            </span>Pick Ticker</a>
+        <a *ngIf="type === 'macro-type'">Research Type</a>
+    </li>
+    <li role="tab">
+        <a (click)="navigation()">
+            <span>
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </span>Compose Insight</a>
+    </li>
+    <li role="tab">
+        <a (click)="navigation1()">
+            <i class="fa fa-file-text" aria-hidden="true"></i>Preview & Publish</a>
+    </li>
+</ul>
+<div class="main_section">
+    <div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <b>Pick Ticker</b>
+            </h4>
+        </div>
+        <div class="panel-body">
+            <div class="tab-content " *ngIf="!showMacroForm">
+                <div class="tab-pane fade in show active">
+                    <form [formGroup]="pickTickerForm" (ngSubmit)="submit(pickTickerForm.value)" class="form-signin" novalidate autocomplete="on">
+                        <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8">
+                            <div class="form-group has-feedback">
+                                <select class="form-control" formControlName="commodityId">
+                                    <option value=null selected>Select Note Types</option>
+                                    <option *ngFor="let commodity of commodities" [value]="commodity.id">{{commodity.name}}</option>
+                                </select>
+                                <div class="text-danger" *ngIf="pickTickerForm.get('commodityId').dirty && pickTickerForm.get('commodityId').invalid">
+                                    Please select commodity
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8">
+                            <div class="form-group has-feedback">
+                                <select class="form-control js-data-example-ajax">
+                                    <option>Select</option>
+                                    <option *ngFor="let ticker of tickers" value="ticker.id" selected>{{ticker.name}}</option>
+                                </select>
+
+                                <div class="text-danger" *ngIf="pickTickerForm.get('tickerId').dirty && pickTickerForm.get('tickerId').invalid">
+                                    Please choose ticker
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-8 text-center">
+                                <button type="submit" class="btn btn-success" [disabled]="pickTickerForm.invalid">Continue</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div *ngIf="showMacroForm">
+                <div>
+                    <form [formGroup]="pickTickerForm" (ngSubmit)="submit(pickTickerForm.value)" class="form-signin" novalidate autocomplete="on">
+                        <div class="form-group has-feedback">
+                            <select class="form-control" (change)="changeFields($event.target.value)" formControlName="macro_type">
+                                <option value="industry" selected="selected">Industry</option>
+                                <option value="economic">Economic</option>
+                                <option value="currency">Currency</option>
+                            </select>
+                            <div class="text-danger" *ngIf="pickTickerForm.get('macro_type').dirty && pickTickerForm.get('macro_type').invalid">
+                                Please choose macro_type
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback" *ngIf="industry">
+                            <select class="form-control" (change)="sectorChange($event.target.value)" formControlName="sectorId">
+                                <option value=null selected>Select Sector</option>
+                                <option *ngFor="let sector of sectors" [value]="sector.id">
+                                    {{sector.name}}
+                                </option>
+                            </select>
+                            <div class="text-danger" *ngIf="pickTickerForm.get('sectorId').dirty && pickTickerForm.get('sectorId').invalid">
+                                Please choose sector
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback" *ngIf="industry">
+                            <select class="form-control" formControlName="subsectorId">
+                                <option value=null selected>Select SubSector</option>
+                                <option *ngFor="let subsector of subsectors" [value]="subsector.id">
+                                    {{subsector.name}}
+                                </option>
+                            </select>
+                            <div class="text-danger" *ngIf="pickTickerForm.get('subsectorId').dirty && pickTickerForm.get('subsectorId').invalid">
+                                Please choose subsector
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback" *ngIf="economic">
+                            <select class="form-control" formControlName="regionId">
+                                <option value=null selected>Select Region</option>
+                                <option *ngFor="let regions of regionsData" [value]="regions.id">
+                                    {{regions.name}}
+                                </option>
+                            </select>
+                            <div class="text-danger" *ngIf="pickTickerForm.get('regionId').dirty && pickTickerForm.get('regionId').invalid">
+                                Please select region
+                            </div>
+                        </div>
+                        <div class="form-group has-feedback" *ngIf="currency">
+                            <select class="form-control" formControlName="currencyId">
+                                <option value=null selected>Select Currency</option>
+                                <option *ngFor="let currency of currencyData" [value]="currency.id">
+                                    {{currency.name}}
+                                </option>
+                            </select>
+                            <div class="text-danger" *ngIf="pickTickerForm.get('currencyId').dirty && pickTickerForm.get('currencyId').invalid">
+                                Please choose currency
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <button type="submit" class="btn btn-success" [disabled]="pickTickerForm.invalid">Continue</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,106 @@
+.nav-tabs {
+	border-bottom: 2px solid #DDD;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:focus,
+.nav-tabs>li.active>a:hover {
+	border-width: 0;
+}
+
+.nav-tabs>li>a {
+	border: none;
+	color: #6b6968;
+	background: #ddd;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li>a active:hover {
+	border: none;
+	color: #f1592a !important;
+	background: #fff;
+}
+
+.nav-tabs>li>a::after {
+	content: "";
+	background: #f1592a;
+	height: 2px;
+	position: absolute;
+	width: 100%;
+	left: 0px;
+	bottom: -1px;
+	transition: all 250ms ease 0s;
+	transform: scale(0);
+}
+
+.nav-tabs>li.active>a::after,
+.nav-tabs>li:hover>a::after {
+	transform: scale(1);
+}
+
+.tab-nav>li>a::after {
+	background: #5a4080 none repeat scroll 0% 0%;
+	color: #fff;
+}
+
+.tab-pane {
+	padding: 15px 0;
+}
+
+.tab-content {
+	padding: 20px
+}
+
+.nav-tabs>li {
+	width: 20%;
+	text-align: center;
+}
+
+.card {
+	background: #FFF none repeat scroll 0% 0%;
+}
+
+body {
+	background: #EDECEC;
+	padding: 50px
+}
+
+.continue-btn {
+	text-align: center;
+	margin-top: 20px
+}
+
+.form-control {
+	margin-top: 20px
+}
+
+.reset a {
+	color: #f1592a !important;
+}
+
+.nav-tabs .fa {
+	margin-right: 6px;
+}
+
+.panel {
+	margin-top: 20px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+	.nav-tabs>li>a>span {
+		display: none;
+	}
+	.nav-tabs>li>a {
+		padding: 5px 5px;
+		margin-right: 0px;
+	}
+	.nav-tabs>li {
+		width: unset;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.nav-tabs>li {
+		width: 24%;
+	}
+}

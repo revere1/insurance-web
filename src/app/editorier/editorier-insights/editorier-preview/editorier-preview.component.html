@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div *ngIf="finished">
+    <p *ngIf="insightsData.status == 'remodify'" style="color:red">This is alredy Reassiged To Creatd Analyst</p>
+    <div class="row">
+      <div [class]="(insightsData?.ticker?.name || Headers.length) ? 'col-md-8 col-sm-12' :'col-md-12 col-sm-12'">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+          <div class="insight-profile">
+            <div class="company-insight">
+              <div class="company-name">
+                <p>{{insightsData?.ticker?.company | titlecase}}</p>
+              </div>
+              <div class="username">
+                <p>{{insightsData?.user?.first_name  | titlecase }} {{insightsData?.user?.last_name | titlecase }}</p>
+              </div>
+            </div>
+            <div class="company-title" *ngIf="_utils.inArray(insightsData?.type,['In-depth','quick-note'])">
+              <i class="fa fa-book"></i>
+              <span class="icon-name" [innerHTML]="insightsData.type | titlecase"></span> /
+              <span class="icon-title">{{insightsData?.commodity?.name}}</span>
+            </div>
+            <div class="company-title" *ngIf="(insightsData?.type === 'macro-type')">
+              <i class="fa fa-book"></i>
+              <span>{{insightsData?.macro_type | titlecase}}</span> /
+              <span class="icon-title">{{insightsData?.sector?.name}}</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1 class="user-headline">
+            <div [innerHTML]="insightsData.headline | titlecase"></div>
+          </h1>
+          <span>{{_utils.toDateString(insightsData.createdAt)}}</span>
+        </div>
+        <div id="data">
+          <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="_utils.inArray(insightsData?.type,['In-depth','quick-note','macro-type'])">
+            <h5 class="summary">Summary</h5>
+            <p class="img-resize" [innerHTML]="insightsData.summary"></p>
+          </div>
+          <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="(insightsData?.type === 'In-depth')">
+            <h5 class="summary">Description:</h5>
+            <p class="img-resize" [innerHTML]="insightsData?.description" class="img-resize"></p>
+          </div>
+          <span *ngIf="insightsData?.insight_attachements">
+            <p *ngFor="let file of insightsData.insight_attachements">
+              <a href="{{serverURL+file.path}}" download> {{file.orgName}}</a>
+            </p>
+          </span>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12 assign-button">
+          <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-primary" *ngIf="insightsData.status == 'assigned'" (click)="ReAssignToAnalyst()">
+              <i class="glyphicon glyphicon-retweet"></i>Reassign To Analyst</button>
+            <button type="button" class="btn btn-primary" *ngIf="insightsData.status == 'assigned'" (click)="Publish()">
+              <i class="glyphicon glyphicon-arrow-up"></i>Publish</button>
+            <button type="button" class="btn btn-primary" *ngIf="insightsData.status == 'assigned'" (click)="Edit()">
+              <span>
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </span>Edit</button>
+          </div>
+        </div>
+        <div *ngIf="!submit" style="display: none;">
+          <ngx-charts-line-chart [view]="view" [scheme]="colorScheme" [results]="ngxData.data" [gradient]="gradient" [xAxis]="showXAxis"
+            [yAxis]="showYAxis" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+            [yAxisLabel]="yAxisLabel" [autoScale]="autoScale">
+          </ngx-charts-line-chart>
+        </div>
+        <div style="display: none;">
+          <canvas id="canvas" width="800" height="800"></canvas>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="analyst-graph">
+          <div class="preview-header" *ngIf="Headers.length != 0">
+            <h4>Headers</h4>
+          </div>
+          <div *ngIf="Headers.length != 0">
+            <div *ngFor="let  header of Headers;index as i ">
+              <p id="header{{i}}">{{header}}</p>
+            </div>
+          </div>
+          <div *ngIf="insightsData?.ticker?.name">
+            <div *ngIf="(price != undefined)">
+              <!-- <p>General retail</p> -->
+              <div class="preview-header">
+                <h4>General Details</h4>
+              </div>
+              <p>Price : {{price}}</p>
+              <p>Market cap : {{insightsData?.ticker?.share_in_issue * price }}</p>
+            </div>
+            <div>
+              <div class="preview-header">
+                <h4>Share Details</h4>
+              </div>
+              <p>Code : {{insightsData?.ticker?.name}}</p>
+              <p>Listing : {{insightsData?.ticker?.listing_exchange}}</p>
+              <p>Shares in issue : {{insightsData?.ticker?.share_in_issue}}</p>
+            </div>
+            <div>
+              <div class="preview-header">
+                <h4>Business Description</h4>
+              </div>
+              <p class="preview-desc" [innerHTML]="insightsData?.ticker?.about"></p>
+            </div>
+            <div *ngIf="(price != undefined)">
+              <div class="preview-header">
+                <h4>Graph Details</h4>
+              </div>
+              <div class="tab-content no-padding ">
+                <div id="png-container"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

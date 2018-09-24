@@ -1,0 +1,341 @@
+.list-group-item .avatar-row {
+	padding-left: 10px;
+}
+
+.list-group-item {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.col-md-2,
+.col-md-3,
+.col-md-7 {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.grid-item {
+	padding-left: 10px;
+	min-height: 206px;
+}
+
+.grid-item a,
+.list-group-item a {
+	color: inherit !important;
+}
+
+img.my-img {
+	height: 40px;
+	width: 40px;
+}
+
+.clock {
+	margin-top: 3px;
+}
+
+.grid-item .sub {
+	max-height: 84px;
+	overflow: hidden;
+}
+
+.list-group-item .note {
+	max-height: 40px;
+	overflow: hidden;
+}
+
+.icon {
+	text-align: right;
+}
+
+.profile-pic {
+	display: inline-flex;
+}
+
+.profile-name {
+	padding-left: 10px;
+}
+
+.end {
+	margin-left: 10px;
+}
+
+.ppic {
+	float: left;
+	padding: 10px 15px 0 0;
+}
+
+.item-list .body {
+	padding: 10px 0 0 50px;
+}
+
+.message+.helpinfo.myclass {
+	padding-top: 0px;
+}
+
+.helpinfo.myclass {
+	padding-top: 0px;
+}
+
+.item-list .helpinfo {
+	padding-top: 15px;
+	position: relative;
+    bottom: 20px !important;
+}
+.grid-item .helpinfo {
+    position: relative;
+    top: 0px;
+}
+
+
+.item-list .help-icon i {
+	margin: 0 0 0 -10px;
+	padding-right: 7px;
+}
+
+.list-group-item .ppic {
+	padding-left: 15px;
+}
+
+.list-group-item .myclass {
+	position: relative;
+	width: 85%;
+	bottom: 18px;
+	float: right;
+	padding: 0px;
+	height: 0px;
+}
+
+.list-group-item p {
+	max-height: 21px;
+	overflow: hidden;
+	max-width: 85%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.list-group-item .created-date {
+	float: right;
+	position: relative;
+	bottom: 0px;
+	right: 15px;
+}
+
+.grid-item {
+	border: 1px solid #ccc;
+	border-top: none;
+}
+
+.grid-item:nth-child(3n+0) {
+	border-right: none;
+}
+
+.grid-item:nth-child(1n+0) {
+	border-left: none;
+}
+
+.list-group-item {
+	border: none;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 0px;
+}
+
+.analyst-help p {
+	color: #999;
+	margin: 0px;
+}
+
+.profile-icon {
+	padding-left: 33px;
+}
+
+.profile-icon b {
+	padding-left: 8px;
+}
+
+.plus-icon {
+	position: relative;
+	top: 8px;
+	left: 4px;
+}
+
+.create {
+	text-align: right;
+	margin-right: 20px;
+}
+
+.glyphicon-plus {
+	visibility: hidden;
+}
+
+.share-button {
+	position: absolute;
+	top: 0px;
+	right: 15px;
+	margin-top: 10px;
+	visibility: hidden;
+}
+
+.database {
+	margin-bottom: 35px;
+}
+
+.reply-form {
+	padding: 10px;
+}
+
+.qucik {
+	width: 500px;
+}
+
+.title {
+	color: black !important;
+	max-height: 21px;
+	overflow: hidden;
+	max-width: 85%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+/* css for dropdwon   start here*/
+
+.dropdown-content a:hover {
+	background-color: #ddd
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown {
+	position: relative;
+	display: inline;
+}
+
+.dropdown:hover .dropbtn {
+	background-color: #dddddd;
+}
+
+.dropdown-menu {
+	min-width: 0px;
+	margin-top: 0px;
+	background-color: #dddddd;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.dropdown-menu>li>a>.fa {
+	padding-left: 5px;
+}
+
+.dropdown-menu>li>a {
+	padding: 0px 8px;
+	background-color: #dddddd;
+}
+
+.dropdown-menu>li> {
+	padding: 0px 8px;
+	background-color: #dddddd;
+}
+
+.dropdown-menu>li>a:hover {
+	background-color: #dddddd;
+}
+
+.plus-icon:hover .glyphicon-plus {
+	visibility: visible;
+	color: orange;
+}
+
+.username:hover .glyphicon-plus {
+	visibility: visible;
+}
+
+.item:hover .share-button {
+	visibility: visible;
+}
+
+.item.list-group-item .share-button {
+	margin-top: 5px;
+}
+.item-list .helpinfo {
+    position: relative;
+    bottom: 0px;
+}
+.username {
+	color: #fbb040;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.list-group-item .username {
+	width: 150px;
+	;
+}
+
+
+/* css for dropdwon   end here*/
+
+.company {
+	color: grey;
+}
+
+.search-form {
+	background-color: #e4e4e4;
+	padding: 15px 0px 0px 0px;
+	margin: 0px 10px 0px 5px;
+}
+
+.grid-buttton {
+	padding-left: 65px;
+}
+
+.client-help p {
+	margin: 0;
+	overflow: hidden;
+}
+
+
+/*media query start here */
+
+@media (min-width:320px) and (max-width:480px) {
+	.fa.fa-fw.fa-clock-o {
+		float: left;
+	}
+	.grid-buttton {
+		display: none;
+	}
+	.fa.fa-fw.fa-clock-o {
+		float: left;
+	}
+	.icon {
+		text-align: left;
+	}
+	.grid-item {
+		border-right: none;
+	}
+	.grid-item .sub {
+		font-size: 12px;
+		max-height: 70px !important;
+	}
+}
+@media (min-width:481px) and (max-width:767px) {
+.grid-buttton{
+	display: none;
+}
+}
+
+/* Quick filter */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.grid-buttton {
+		display: none;
+	}
+	.grid-item {
+		min-height: 140px;
+		float: left;
+		border-right: none;
+		width: 100%;
+	}
+}

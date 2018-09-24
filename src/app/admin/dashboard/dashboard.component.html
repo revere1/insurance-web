@@ -1,0 +1,96 @@
+<!-- Small boxes (Stat box) -->
+<div class="row">
+    <div class="col-lg-3 col-xs-6"> 
+      <!-- small box -->
+      <div class="small-box bg-aqua">
+        <div class="inner">
+          <h3>{{tickers}}</h3>
+          <p>Tickers</p>
+        </div>
+        <div class="icon"> <i class="ion ion-clock"></i> </div>
+        <a routerLink="/admin/tickers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6"> 
+      <!-- small box -->
+      <div class="small-box bg-green">
+        <div class="inner">
+          <h3>0<sup style="font-size: 20px"></sup></h3>
+          <p>Complaints</p>
+        </div>
+        <div class="icon"> <i class="ion ion-android-drafts"></i> </div>
+              <a routerLink="/admin/clients" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6"> 
+      <!-- small box -->
+      <div class="small-box bg-yellow">
+        <div class="inner">
+          <h3>{{clients}}</h3>
+          <p>Customer Registrations</p>
+        </div>
+        <div class="icon"> <i class="ion ion-person-add"></i> </div>
+        <a routerLink="/admin/clients" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> </div>
+    </div>
+    <!-- ./col -->
+    <div class="col-lg-3 col-xs-6"> 
+      <!-- small box -->
+      <div class="small-box bg-red">
+        <div class="inner">
+          <h3>{{analysts}}</h3>
+          <p>Analysts</p>
+        </div>
+        <div class="icon"> <i class="ion ion-man"></i> </div>
+        <a routerLink="/admin/analysts" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a> </div>
+    </div>
+    <!-- ./col --> 
+  </div>
+  <!-- /.row --> 
+  <!-- Main row -->
+  <div class="row"> 
+    <!-- Left col -->
+    <section class="col-lg-7 connectedSortable"> 
+      <!-- Custom tabs (Charts with tabs)-->
+      <div class="nav-tabs-custom"> 
+        <!-- Tabs within a box -->
+        <ul class="nav nav-tabs pull-right">
+          <li class="pull-left header"><i class="fa fa-inbox"></i> Customers Per Year</li>
+        </ul>
+        <div class="tab-content no-padding " style="position: obsolute; height: 400px;"> 
+    
+<div *ngIf="!submitting">
+    <ngx-charts-line-chart
+    [view]="view"
+    [scheme]="colorScheme"
+    [results]="ngxData.data"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"  
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [autoScale]="autoScale">
+  </ngx-charts-line-chart>
+</div>
+    </div>
+      </div>
+    </section>
+    <!-- /.Left col --> 
+    <!-- right col (We are only adding the ID to make the widgets sortable)-->
+    <!-- <section class="col-lg-5 connectedSortable"> 
+      <div class="box box-solid bg-light-blue-gradient">
+        <div class="nav-tabs-custom"> 
+          <ul class="nav nav-tabs pull-right">
+            <li class="pull-left header"><i class="fa fa-inbox"></i> Analysts Per Year</li>
+          </ul>
+          <div class="tab-content no-padding"> 
+            <div class="chart tab-pane active" id="revenue-chart1" style="position: relative; height: 400px;"></div>
+            <div class="chart tab-pane" id="sales-chart1" style="position: relative; height: 400px;"></div>
+          </div>
+        </div>
+      </div> 
+    </section>-->
+    <!-- right col --> 
+  </div>
+  <!-- /.row (main row) --> 

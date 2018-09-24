@@ -1,0 +1,52 @@
+<div class="main_section col-sm-12" *ngIf="!noRecords;else otherBlock">
+  <div class="container-fluid">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Notifications</h3>
+        <div class=" notification">
+          <span class="btn-group">
+            <form [formGroup]="notificationFilterForm" class="form-inline" novalidate autocomplete="on">
+              <div class="form-group">
+                <select class="form-control" formControlName="sortBy">
+                  <option value="recent">Most Recent</option>
+                  <option value="old">Most Aged</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <input class="form-control Quick-Filter" placeholder="Quick Filter" formControlName="quickFilter">
+                <span class="glyphicon glyphicon-filter form-control-feedback"></span>
+              </div>
+            </form>
+          </span>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Messgaes</th>
+            <th>From</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let notification of notifications">
+            <td [innerHTML]="notification.message"></td>
+            <td>{{notification['user.first_name'] | titlecase}} {{notification['user.last_name'] | titlecase }}</td>
+            <td>{{_utils.toUserFriendlyDate(notification.createdAt)}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scrolled)="onScroll()">
+  </div>
+  <div *ngIf="!finished">
+      Loading more movies...
+  </div>
+  <div class="end" *ngIf="finished">
+      End of database... That's all folks!
+  </div>
+</div>
+<ng-template #otherBlock>
+  <h1 style="text-align:center">NO Records Found</h1>
+</ng-template>

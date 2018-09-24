@@ -1,0 +1,25 @@
+<button class="btn btn-success pull-right margin-r10"  (click)="download()">Export</button>
+  <br><br>
+<div class="table-responsive">
+<table datatable [dtOptions]="dtOptions" class="row-border hover table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let person of contacts">
+            <td>{{ person.name }}</td>
+            <td>{{ person.mobile }}</td>
+            <td>{{ person.email }}</td>
+            <td>{{ person.comments }}</td>
+          </tr>
+          <tr *ngIf="contacts?.length == 0">
+            <td colspan="3" class="no-data-available">No data!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>

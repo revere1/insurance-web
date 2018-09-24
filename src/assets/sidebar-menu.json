@@ -1,0 +1,258 @@
+[
+    {
+        "id": 1,
+        "name": {
+            "en": "Dashboard",
+            "de": "DE_Dashboard"
+        },
+        "routerLink": "/admin/home",
+        "icon": "fa fa-fw fa-home"
+    },
+    {
+        "id": 2,
+        "name": {
+            "en": "Insights",
+            "de": "DE_Insights"
+        },
+        "routerLink": false,
+        "icon": "fa fa-fw fa-newspaper-o",
+        "sublinks": [
+            {
+                "id": 1,
+                "name": {
+                    "en": "All insights",
+                    "de": "DE_All insights"
+                },
+                "routerLink": "/insights",
+                "icon": "fa fa-fw fa-newspaper-o"
+            },
+            {
+                "id": 2,
+                "name": {
+                    "en": "Note Types",
+                    "de": "DE_Note Types"
+                },
+                "routerLink": "/admin/insights/commodities",
+                "icon": "fa-users"
+            },
+            {
+                "id": 3,
+                "name": {
+                    "en": "My-Insights",
+                    "de": "DE_Unpublish-Insights"
+                },
+                "routerLink": "/admin/insights/my-insights",
+                "icon": "fa-users"
+            }
+
+        ]
+    },
+    {
+        "id": 3,
+        "name": {
+            "en": "Tickers",
+            "de": "DE_Tickers"
+        },
+        "routerLink": "/admin/tickers",
+        "icon": "fa-book"
+    },
+    {
+        "id": 4,
+        "name": {
+            "en": "Locker",
+            "de": "DE_Locker"
+        },
+        "routerLink": "/lockers",
+        "icon": "fa-briefcase"
+    },
+    {
+        "id": 5,
+        "name": {
+            "en": "Messages",
+            "de": "DE_Messages"
+        },
+        "routerLink": "/messages/read/",
+        "icon": "fa-users"
+    },
+    {
+        "id": 6,
+        "name": {
+            "en": "Users",
+            "de": "DE_Users"
+        },
+        "routerLink": false,
+        "icon": "fa-gear",
+        "sublinks": [
+            {
+                "id": 1,
+                "name": {
+                    "en": "Clients",
+                    "de": "DE_Clients"
+                },
+                "routerLink": "/admin/clients",
+                "icon": "fa-users"
+            },
+            {
+                "id": 2,
+                "name": {
+                    "en": "Analysts",
+                    "de": "DE_Analysts"
+                },
+                "routerLink": "/admin/analysts",
+                "icon": "fa-users"
+            },
+            {
+                "id": 3,
+                "name": {
+                    "en": "Management",
+                    "de": "DE_Management"
+                },
+                "routerLink": "/admin/management",
+                "icon": "fa-users"
+            },
+            {
+                "id": 4,
+                "name": {
+                    "en": "Editoriers",
+                    "de": "DE_Editoriers"
+                },
+                "routerLink": "/admin/editoriers",
+                "icon": "fa-users"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": {
+            "en": "Help",
+            "de": "DE_Help"
+        },
+        "routerLink": "/help",
+        "icon": "fa-users"
+    },
+  
+ 
+   
+    {
+        "id": 8,
+        "name": {
+            "en": "Settings",
+            "de": "DE_Settings"
+        },
+        "routerLink": false,
+        "icon": "fa-gear",
+        "sublinks": [
+            {
+                "id": 1,
+                "name": {
+                    "en": "Profile",
+                    "de": "DE_Profile"
+                },
+                "routerLink": "/settings/profile",
+                "icon": "fa-users"
+            },
+            {
+                "id": 2,
+                "name": {
+                    "en": "Change Password",
+                    "de": "Change Password"
+                },
+                "routerLink": "/settings/change-password",
+                "icon": "fa-pencil"
+            },
+            {
+                "id": 11,
+                "name": {
+                    "en": "Analyst-Companies",
+                    "de": "DE_Analyst-Companies"
+                },
+                "routerLink": "/admin/analyst-companies",
+                "icon": "fa-users"
+            },
+            {
+                "id": 4,
+                "name": {
+                    "en": "Sector",
+                    "de": "DE_Sector"
+                },
+                "routerLink": "/admin/sectors",
+                "icon": "fa-users"
+            },
+            {
+                "id": 5,
+                "name": {
+                    "en": "Sub-Sector",
+                    "de": "DE_Sub-Sector"
+                },
+                "routerLink": "/admin/sub-sector",
+                "icon": "fa-users"
+            },
+            {
+                "id": 6,
+                "name": {
+                    "en": "Countries",
+                    "de": "DE_Countries"
+                },
+                "routerLink": "/admin/countries",
+                "icon": "fa-users"
+            },
+            {
+                "id": 7,
+                "name": {
+                    "en": "States",
+                    "de": "DE_States"
+                },
+                "routerLink": "/admin/states",
+                "icon": "fa-users"
+            },
+            {
+                "id": 8,
+                "name": {
+                    "en": "Notifications",
+                    "de": "DE_Notifications"
+                },
+                "routerLink": "/settings/notifications",
+                "icon": "fa-users"
+            },
+            
+            {
+                "id": 9,
+                "name": {
+                    "en": "Regions",
+                    "de": "DE_Regions"
+                },
+                "routerLink": "/admin/regions",
+                "icon": "fa-users"
+            },
+            {
+                "id": 10,
+                "name": {
+                    "en": "Currency",
+                    "de": "DE_Currency"
+                },
+                "routerLink": "/admin/currency",
+                "icon": "fa-users"
+            },
+            {
+                "id": 11,
+                "name": {
+                    "en": "ContactUsList",
+                    "de": "DE_ContactUsList"
+                },
+                "routerLink": "/admin/contact-us-list",
+                "icon": "fa-users"
+            },
+            {
+                "id": 11,
+                "name": {
+                    "en": "Logout",
+                    "de": "DE_Logout"
+                },
+                "routerLink": "/auth/logout",
+                "icon": "fa fa-power-off"
+            }
+           
+           
+        ]
+    }
+]

@@ -1,0 +1,20 @@
+:host {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.tile {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+ width: 250px ;
+ height:275px !important;
+ margin: 0 auto;
+}
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) {
+
+    .tile {
+     width: 232px ;
+   
+    }
+}

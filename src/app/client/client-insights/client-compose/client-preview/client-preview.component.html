@@ -1,0 +1,97 @@
+<!-- Nav tabs -->
+<div class="container ">
+  <div class="finish">
+    <ul class="nav nav-tabs nav-justified" *ngIf="insightsData?.status !== 'published' && insightsData?.status !== 'submitted' && insightsData?.status !== 'assigned'">
+      <li class="nav-item">
+        <a class="nav-link active" (click)="navigation()">Pick Ticker</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" (click)="navigation1()">Compose Insight</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">Preview & Publish</a>
+      </li>
+    </ul>
+    <br>
+    <br>
+    <div (ngSubmit)="update(insightsData?.status)" class="form-group" *ngIf="finished">
+      <div class="row ">
+        <div class="col-md-12 col-sm-12 col-xs-12 ">
+          <div class="insight-profile">
+            <div class="company-insight">
+              <div class="company-name">
+                <p>{{insightsData?.ticker.company | titlecase}}</p>
+              </div>
+              <div class="user-name">
+                <p>{{insightsData?.user.first_name}} {{insightsData?.user.last_name}}</p>
+              </div>
+            </div>
+            <div class="company-title">
+              <i class="fa fa-book"></i>
+              <span class="icon-name" [innerHTML]="insightsData.type | titlecase"></span> /
+              <span class="icon-title">{{insightsData?.commodity.name}}</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1 class="user-headline">
+            <div [innerHTML]="insightsData.headline | titlecase"></div>
+          </h1>
+          <span>{{_utils.toDateString(insightsData.createdAt)}}</span>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h5 class="summary">Summary</h5>
+          <p class="img-resize" [innerHTML]="insightsData.summary"></p>
+          <span *ngIf="insightsData?.insight_attachements">
+            <p *ngFor="let file of insightsData.insight_attachements">
+              <a href="{{serverURL+file.path}}" download> {{file.path | slice:47:100}}</a>
+            </p>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12 col-xs-12" *ngIf="(insightsData?.type === 'In-depth')">
+        <h5 class="summary">Description:</h5>
+        <p class="img-resize" [innerHTML]="insightsData?.description" class="img-resize"></p>
+        <span *ngIf="insightsData?.insight_attachements">
+          <p *ngFor="let file of insightsData.insight_attachements">
+            <a href="{{serverURL+file.path}}" download> {{file.path | slice:47:100}}</a>
+          </p>
+        </span>
+      </div>
+
+      <div class="post-comments" *ngIf="insightsData ?.status === 'published'">
+        <div class="panel-footer">
+          <div class="pull-right" *ngIf="!isPushed">
+            <button class="btn btn-primary" type="button" class="btn btn-default" (click)="reply1()">
+              <span><i class="fa fa-reply"></i></span> Comment</button>
+          </div>
+          <app-client-insight-comment-form *ngIf="reply" [replyFor]="replyFor" (UpdateReplyId)="replyToUpdate($event)">
+          </app-client-insight-comment-form>
+        </div>
+
+        <!-- first comment -->
+        <div class="media" *ngFor="let comment of insightsData1">
+          <a class="avatar avatar-online" data-toggle="tooltip" href="#" data-placement="right" title="" data-original-title="June Lane">
+            <img [src]="serverURL+comment.user?.user_profile.profile_pic" onError="this.src='assets/img/avatar5.png'" alt="User Pic">
+          </a>
+          <span class="label label-info">{{comment.user?.first_name}} {{comment.user?.last_name}}</span>
+          <p [innerHTML]="comment.comment"></p>
+          <span *ngFor="let path of comment.insight_comment_attachements">
+            <i class="fa fa-paperclip"></i> Attachments <p>
+              <a download [href]="serverURL+path"> {{path.orgName}}</a>
+            </p>
+          </span>
+          <span>
+            <a href="javascript:void(0);" (click)="switchForm(comment.id)">Reply</a>
+            <span *ngIf="insightsData2">
+              <a href="javascript:void(0);" (click)="switchComments(comment.id)">comments</a>
+            </span>
+          </span>
+          <app-client-insight-comment-form *ngIf="showForm[comment.id]" [replyFor]="replyFor" (UpdateReplyId)="replyToUpdate($event)">
+          </app-client-insight-comment-form>
+          <app-client-comments [data]="comment" (UpdateComments)="replyToUpdate($event)"></app-client-comments>
+        </div>
+      </div>
+    </div>
+  </div>

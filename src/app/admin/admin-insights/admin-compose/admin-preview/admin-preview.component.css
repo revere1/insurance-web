@@ -1,0 +1,120 @@
+body {
+	background: #ddd;
+	margin-top: 10px;
+}
+
+.assign-form {
+	background-color: #ffffff;
+	border: 1px solid #ffffff;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	max-width: 86%;
+	padding-top: 20px;
+}
+
+.finish {
+	padding-bottom: 60px;
+	text-align: justify;
+	margin-right: 145px;
+	margin-left: 40px;
+}
+
+.form-group.has-feedback label {
+	margin-top: 5px;
+}
+
+.assign-head {
+	padding-left: 23px;
+}
+
+.form-group.has-feedback {
+	margin-top: 15px;
+}
+
+
+/* new preview alignment for admin buttons*/
+
+.summary {
+	border-top: 1px solid #dadada;
+	border-bottom: 1px solid #dadada;
+	padding: 10px 0px 10px 0px;
+	border-bottom-style: dashed;
+	border-top-style: dashed;
+}
+
+.icon-name {
+	padding-left: 7px;
+	padding-right: 4px;
+}
+
+.company-name {
+	color: grey;
+}
+
+.username {
+	color: #fbb040;
+}
+
+.user-headline {
+	font-size: 26px;
+}
+
+button.btn-primary {
+	margin-left: 25px;
+	border-radius: 0px;
+	background-color: #f1592a !important;
+	border-color: #f1592a !important;
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.dropdown-toggle.btn-primary.focus,
+.open>.dropdown-toggle.btn-primary:focus,
+.open>.dropdown-toggle.btn-primary:hover {
+	background-color: #24a9a7 !important;
+	border-color: #24a9a7 !important;
+}
+
+#assign-butt {
+	width: 100% !important;
+}
+
+
+/* new preview alignment for admin buttons end here*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+	.form-group.has-feedback {
+		display: inline-grid;
+	}
+	.form-group.has-feedback label {
+		width: 100%;
+	}
+	.finish {
+		margin-right: 0px;
+		margin-left: 0px;
+	}
+	#assign-butt span.select2.select2-container.select2-container--default.select2-container--focus {
+		width: 400px !important;
+	}
+	.assign {
+		width: 100%;
+	}
+	.assign-form {
+		max-width: 100%;
+	}
+	button.btn-primary {
+		margin-left: 10px;
+		margin-top: 14px;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+	.finish {
+		margin-right: 235px;
+	}
+}

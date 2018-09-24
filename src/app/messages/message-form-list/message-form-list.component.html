@@ -1,0 +1,131 @@
+<div class="main_section col-sm-12">
+  <div class="container-fluid">
+    <div class="chat_container">
+      <div class="col-sm-4 chat_sidebar">
+        <div class="row">
+          <div id="custom-search-input">
+            <form [formGroup]="msgFilterForm" class="form-signin" novalidate autocomplete="on">
+              <div class="input-group form-group col-md-12">
+                <div class="inner-addon right-addon">
+                  <i class="glyphicon glyphicon-search"></i>
+                  <input type="text" class="form-control" formControlName="quickFilter" placeholder="Conversation" />
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="dropdown all_conversation">
+            <button class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-weixin" aria-hidden="true"></i>
+              All Conversations
+              <span class="caret pull-right"></span>
+            </button>
+          </div>
+          <div class="member_list" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="1000" (scroll)="onScroll()">
+            <ul class="list-unstyled" id="border{{i}}" *ngFor="let user of usersList;index as i" [style.border-color]="(user.unread != 0) ? '#4245f4' : ''">
+              <li class="left clearfix" [routerLink]='["/messages/read",user.mid]' (click)="refresh(user.mid,i)">
+                <span class="chat-img pull-left">
+                  <img [src]="serverURL+user.profile_pic" onError="this.src='assets/img/avatar5.png'" alt="User Avatar" class="img-circle">
+                </span>
+                <div class="chat-body clearfix">
+                  <div class="header_sec">
+                    <p>
+                      <strong class="primary-font username">{{user.first_name | titlecase }} {{user.last_name | titlecase }}</strong>
+                    </p>
+                    <p>
+                      <strong class="pull-right">
+                        {{_utils.toDateString(user.latest_date)}}</strong>
+                    </p>
+                  </div>
+                  <div class="contact_sec">
+                    <p class="message">
+                      <strong class="primary-font" [innerHTML]="_utils.stripTags(user.subject)"></strong>
+                    </p>
+                    <span [ngClass]="{'badge pull-right': user.unread !== 0}" id="countRemove{{i}}" [style.background]="(user.unread != 0) ? '#42b9f4' : ''">{{user.unread?user.unread:''}}</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div *ngIf="!finished">
+            Loading more messages...
+          </div>
+          <div *ngIf="finished">
+            End of database... That's all folks!
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-8 message_section">
+        <div class="row">
+          <div class="new_message_head">
+            <div class="pull-left">
+              <button [routerLink]="['/messages/create']">
+                <i class="fa fa-plus-square-o" aria-hidden="true"></i> New Message</button>
+            </div>
+          </div>
+          <div class="chat_area">
+            <ul class="list-unstyled">
+              <li class="left clearfix" *ngFor="let message of messages" [ngSwitch]="message.sent_from">
+                <div *ngSwitchCase="currentUserId" class="admin_chat">
+                  <span class="chat-img1 pull-right">
+                    <img [src]="serverURL+message.profile_pic" onError="this.src='assets/img/avatar5.png'" alt="User Avatar" class="img-circle">
+                  </span>
+                  <div class="chat-body1 clearfix">
+                    <div class="msg_rep_box">
+                      <p>You:(
+                        <small>{{_utils.toDateTimeString(message.createdAt)}}</small>)</p>
+                      <p [innerHTML]="message.message" style="text-align: right;"></p>
+                      <ul class="mailbox-attachments clearfix" style="text-align: right;">
+                        <p *ngFor="let images of message.messageFiles">
+                          <a download href="{{serverURL+images.path}}" class="mailbox-attachment-name">
+                            <i class="fa fa-paperclip"></i> {{images.orgName}}
+                          </a>
+                        </p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div *ngSwitchDefault>
+                  <span class="chat-img1 pull-left">
+                    <img [src]="serverURL+message.profile_pic" onError="this.src='assets/img/avatar5.png'" alt="User Avatar" class="img-circle">
+                  </span>
+                  <div class="chat-body2 clearfix">
+                    <div class="msg_rep_box">
+                      <p>{{message.first_name}} {{message.last_name}}: (
+                        <small>{{_utils.toDateTimeString(message.createdAt)}})</small>
+                      </p>
+                      <p [innerHTML]="message.message"></p>
+                      <ul class="mailbox-attachments clearfix">
+                        <p *ngFor="let images of message.messageFiles">
+                          <a download href="{{serverURL+images.path}}" class="mailbox-attachment-name">
+                            <i class="fa fa-paperclip"></i> {{images.orgName}}
+                          </a>
+                        </p>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="left clearfix admin_chat" *ngFor="let reply of replyMessage">
+                <div class="admin_chat">
+                  <span class="chat-img1 pull-right">
+                    <img [src]="avatar" onError="this.src='assets/img/avatar5.png'" alt="User Avatar" class="img-circle">
+                  </span>
+                  <div class="chat-body1 clearfix">
+                    <div class="msg_rep_box">
+                      <p>you:(
+                        <small>{{_utils.toDateTimeString(reply.createdAt)}}</small>)</p>
+                      <p [innerHTML]="reply.msg" style="text-align: right;"></p>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="message_write" *ngIf='id'>
+            <app-message-reply-form (notify)="onNotify($event)"></app-message-reply-form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <form [formGroup]="privillegeForm" (ngSubmit)="savePrivillege()">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12">
+          <div class="checkbox checkbox-success">
+            <div class="form-check">
+              <input type="checkbox" class="filled-in form-check-input" id="checkbox105" formControlName="Revsurvey">
+              <label class="form-check-label" for="checkbox105">Rev survey</label>
+            </div>
+          </div>
+          <div class="checkbox checkbox-success">
+            <div class="form-check">
+              <input type="checkbox" class="filled-in form-check-input" id="checkbox106" formControlName="RevAccess">
+              <label class="form-check-label" for="checkbox106">Rev Access</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary" [attr.disabled]="privillegeForm.invalid || submitting ? true : null" [innerText]="submitBtnText"></button>
+              <app-submitting *ngIf="submitting"></app-submitting>
+              <a *ngIf="!submitting" class="btn btn-link" (click)="resetForm()" tabindex="0">Reset Form</a> <p *ngIf="error"
+                class="mt-3 alert alert-danger">
+                <strong>Error:</strong> There was a problem submitting the form. Please try again.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

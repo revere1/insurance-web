@@ -1,0 +1,41 @@
+.panel .notifications-filter
+{
+  margin-top: -37px;
+}
+.panel-body
+{
+  padding: 0px;
+}
+.notification
+{
+  margin-top: -25px;
+  float:right;
+}
+@media (min-width:320px) and (max-width:480px)
+{
+    .glyphicon-filter {
+  padding-top: 50px;
+}
+
+.notification
+{
+  display: grid;
+  margin-top: 20px;
+  float:unset;
+}
+
+.form-group {
+  padding-right: 10px;
+}
+}
+
+@media (min-width:481px) and (max-width:767px) {
+  .notification[_ngcontent-c10] {
+    margin-top: 20px;
+    float: unset;
+    display: grid;
+}
+.glyphicon-filter {
+  margin-top: 50px;
+}
+}
