@@ -7,8 +7,6 @@ import { UtilsService } from '../../services/utils.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Angular2Csv } from 'angular2-csv/Angular2-csv';
 import { BreadcrumbsService, IBreadcrumb } from 'ng2-breadcrumbs';
-import { SectorsService } from '../../services/sectors.service';
-
 class Contact {
   id: number;
   name: string;
@@ -39,7 +37,6 @@ export class ContactUsListComponent implements OnInit {
   
   constructor(
     private http: HttpClient,
-    private _sectorsService: SectorsService,
     private _utils: UtilsService,
     private breadcrumbsService: BreadcrumbsService,
     private meta: Meta,
@@ -58,33 +55,33 @@ export class ContactUsListComponent implements OnInit {
       this.breadcrumbsService.store(list);
     });
     const that = this;
-    this.dtOptions = {
-      pagingType: 'full_numbers',
-      pageLength: 10,
-      serverSide: true,
-      processing: true,
-      ajax: (dataTablesParameters: any, callback) => {
-        var myEfficientFn = this._utils.debounce(() => {
-          let apiEvent = this._sectorsService.filterContacts$(dataTablesParameters, 'filterContacts')
-            .subscribe(resp => {
-              that.contacts = resp.data;
-              callback({
-                recordsTotal: resp.recordsTotal,
-                recordsFiltered: resp.recordsFiltered,
-                data: []
-              });
-            });
-          (this.apiEvents).push(apiEvent);
-        }, 1000, false);
-        myEfficientFn();
-      },
-      columns: [
-        { data: 'name' },
-        { data: 'mobile' },
-        { data: 'comment' },
-        { data: 'id' }
-      ]
-    };
+    // this.dtOptions = {
+    //   pagingType: 'full_numbers',
+    //   pageLength: 10,
+    //   serverSide: true,
+    //   processing: true,
+    //   ajax: (dataTablesParameters: any, callback) => {
+    //     var myEfficientFn = this._utils.debounce(() => {
+    //       let apiEvent = this._sectorsService.filterContacts$(dataTablesParameters, 'filterContacts')
+    //         .subscribe(resp => {
+    //           that.contacts = resp.data;
+    //           callback({
+    //             recordsTotal: resp.recordsTotal,
+    //             recordsFiltered: resp.recordsFiltered,
+    //             data: []
+    //           });
+    //         });
+    //       (this.apiEvents).push(apiEvent);
+    //     }, 1000, false);
+    //     myEfficientFn();
+    //   },
+    //   columns: [
+    //     { data: 'name' },
+    //     { data: 'mobile' },
+    //     { data: 'comment' },
+    //     { data: 'id' }
+    //   ]
+    // };
   }
   download() {
     this.allItems = this.contacts;

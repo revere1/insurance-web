@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs/Subscription';
-import { SectorFormService } from './../../../services/sectors/sector-form.service';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../../services/user.service';

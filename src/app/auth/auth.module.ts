@@ -11,12 +11,9 @@ import { UpdateProfileComponent } from './update-profile/update-profile.componen
 import { ScriptService } from '../services/script.service';
 import { UtilsService } from '../services/utils.service';
 import { UserService } from '../services/user.service';
-import { SectorsService } from '../services/sectors.service';
-import { SubsectorsService } from '../services/subsectors.service';
 import { StatesService } from '../services/states.service';
 import { CountriesService } from '../services/countries.service';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { CompanyService } from '../services/company.service';
 import { UserFormService } from '../services/users/user-form.service';
 import { SignupComponent } from './signup/signup.component';
 import { RepeatModule } from '../repeat/repeat.module';
@@ -46,11 +43,8 @@ import { RepeatModule } from '../repeat/repeat.module';
     DatePipe,
     UserFormService,
     UserService,
-    SectorsService,
-    SubsectorsService,
     StatesService,
     CountriesService,
-    CompanyService
   ]
 })
 export class AuthModule { }

@@ -11,9 +11,9 @@ import { NotificationService } from '../../services/notifications.service';
 import { Router } from '@angular/router';
 import { BreadcrumbsService, IBreadcrumb } from 'ng2-breadcrumbs';
 @Component({
-  selector: 'app-analyst-layout',
-  templateUrl: './analyst-layout.component.html',
-  styleUrls: ['./analyst-layout.component.css'],
+  selector: 'app-tpa-layout',
+  templateUrl: './tpa-layout.component.html',
+  styleUrls: ['./tpa-layout.component.css'],
   encapsulation: ViewEncapsulation.None
 })
 export class TpaLayoutComponent implements OnInit, AfterViewInit {

@@ -4,13 +4,10 @@ import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { UserService } from './../../services/user.service';
 import { Subscription } from 'rxjs/Subscription';
-import { SectorsService } from './../../services/sectors.service';
-import { SubsectorsService } from './../../services/subsectors.service';
 import { CountriesService } from './../../services/countries.service';
 import { StatesService } from './../../services/states.service';
 import { EventEmitter } from '@angular/core'
 import { ENV } from './../../env.config';
-import { CompanyService } from '../../services/company.service';
 import { UserModel, UserFormModel } from '../../models/user.model';
 import { UserFormService } from '../../services/users/user-form.service';
 declare var $: any;
@@ -51,12 +48,9 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
     private router: Router,
     public cf: UserFormService,
     private _userapi: UserService,
-    private _sectorService: SectorsService,
-    private _subsectorService: SubsectorsService,
     private _stateService: StatesService,
     private _countriesrService: CountriesService,
     private elementRef: ElementRef,
-    private _companyService: CompanyService,
     public toastr: ToastsManager
   ) { }
 
@@ -94,13 +88,7 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
     this.formEvent = this._setFormEvent();
     this._buildForm();
 
-    //Fetch sectors
-    this._sectorService.getSector$().subscribe(data => {
-      if (data.success === false) {
-      } else {
-        this.sectors = data.data;
-      }
-    });
+  
 
     //Fetch Countries
     this._countriesrService.getCountries$().subscribe(data => {
@@ -109,15 +97,7 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
         this.countries = data.data;
       }
     });
-    //Fetch companies
-    this._companyService.getcompanies$().subscribe(data => {
-      if (data.success === false) {
-      } else {
-        this.companies = data.data;
-      }
-    });
   }
-
 
   private _buildForm() {
     let validRules = {
@@ -239,23 +219,8 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
     }
   };
 
-  public sectorChange(sectorVal) {
-    if (sectorVal !== 'null') {
-      this._subsectorService.getSubsector$(sectorVal).subscribe(data => {
-        if (data.success === false) {
-        } else {
-          this.subsectors = data.data;
-        }
-      });
-    }
-    else {
-      this.subsectors = [];
-    }
-  }
-  public sectorChange1(sectorVal) {
-    this.authForm.controls['subsector_id'].patchValue(null);
-    this.sectorChange(sectorVal)
-  }
+
+
 
   public countryChange(countryVal) {
     if (countryVal !== 'null') {
@@ -285,7 +250,7 @@ export class EditProfileComponent implements OnInit, AfterViewInit {
       // If editing existing event, create new
       // FormEventModel from existing data
       if (this.event.sector_id) {
-        this.sectorChange(this.event.sector_id)
+        // this.sectorChange(this.event.sector_id)
       }
       if (this.event.country_id) {
         this.countryChange(this.event.country_id)

@@ -100,7 +100,7 @@ export class MessageCreateFormComponent implements OnInit {
               _that._uploadFile(files, this);
           },
         },
-        hint: that._utils.hint()
+        //hint: that._utils.hint()
       });
       let select2Obj = $("#sent_to").select2({
         minimumInputLength: 2,

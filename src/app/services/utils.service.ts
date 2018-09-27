@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { DatePipe } from '@angular/common';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { IBreadcrumb } from 'ng2-breadcrumbs';
-import { InsightService } from './insights/insight.service';
 import { UserService } from './user.service';
 
 @Injectable()
@@ -10,7 +9,6 @@ export class UtilsService {
   private days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
   constructor(private datePipe: DatePipe,
-    private _is: InsightService,
     private _us: UserService, ) { }
 
   isLoaded(loading: boolean): boolean {
@@ -257,20 +255,6 @@ export class UtilsService {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  showMatchedInsights(keyword, cb) {
-    this._is.elasticInsights(keyword).subscribe(data => {
-      if (data.success)
-        (data.data !== undefined && data.data.insights.length) ? cb(data.data.insights) : cb([]);
-    });
-  }
-
-  showMatchedTickers(keyword, cb) {
-    this._is.elasticTickers(keyword).subscribe(data => {
-      if (data.success)
-        (data.data !== undefined && data.data.tickers.length) ? cb(data.data.tickers) : cb([]);
-    });
-  }
-
   showMatchedAnalysts(keyword, cb) {
     this._us.elasticAnalysts(keyword).subscribe(data => {
       if (data.success) {
@@ -279,54 +263,54 @@ export class UtilsService {
     });
   }
 
-  hint() {
-    let results;
-    let _this = this;
-    return results = [
-      {
-        match: /\B#(\w*)$/,
-        search: function (keyword, callback) {
-          _this.showMatchedInsights(keyword, ((items) => {
-            callback(items);
-          }));
-        },
-        template: function (item) {
-          return item.headline;
-        },
-        content: function (item) {
-          return $('<a href="insights/compose/preview/' + item.id + '" class="mentionned">' + item.headline + '</a>')[0];
-        }
-      },
-      {
-        match: /\B@(\w*)$/,
-        search: function (keyword, callback) {
-          _this.showMatchedAnalysts(keyword, ((items) => {
-            callback(items);
-          }));
-        },
-        template: function (item) {
-          return item.first_name + ' ' + item.last_name;
-        },
-        content: function (item) {
-          return $('<a href="insights/compose/preview/' + item.id + '" class="mentionned">' + item.first_name + ' ' + item.last_name + '</a>')[0];
-        }
-      },
-      {
-        match: /\B\$(\w*)$/,
-        search: function (keyword, callback) {
-          _this.showMatchedTickers(keyword, ((items) => {
-            callback(items);
-          }));
-        },
-        template: function (item) {
-          return item.name;
-        },
-        content: function (item) {
-          return $('<a href="insights/compose/preview/' + item.id + '" class="mentionned">' + item.name + '</a>')[0];
-        }
-      }
-    ]
-  }
+  // hint() {
+  //   let results;
+  //   let _this = this;
+  //   return results = [
+  //     {
+  //       match: /\B#(\w*)$/,
+  //       search: function (keyword, callback) {
+  //         _this.showMatchedInsights(keyword, ((items) => {
+  //           callback(items);
+  //         }));
+  //       },
+  //       template: function (item) {
+  //         return item.headline;
+  //       },
+  //       content: function (item) {
+  //         return $('<a href="insights/compose/preview/' + item.id + '" class="mentionned">' + item.headline + '</a>')[0];
+  //       }
+  //     },
+  //     {
+  //       match: /\B@(\w*)$/,
+  //       search: function (keyword, callback) {
+  //         _this.showMatchedAnalysts(keyword, ((items) => {
+  //           callback(items);
+  //         }));
+  //       },
+  //       template: function (item) {
+  //         return item.first_name + ' ' + item.last_name;
+  //       },
+  //       content: function (item) {
+  //         return $('<a href="insights/compose/preview/' + item.id + '" class="mentionned">' + item.first_name + ' ' + item.last_name + '</a>')[0];
+  //       }
+  //     },
+  //     {
+  //       match: /\B\$(\w*)$/,
+  //       search: function (keyword, callback) {
+  //         _this.showMatchedTickers(keyword, ((items) => {
+  //           callback(items);
+  //         }));
+  //       },
+  //       template: function (item) {
+  //         return item.name;
+  //       },
+  //       content: function (item) {
+  //         return $('<a href="insights/compose/preview/' + item.id + '" class="mentionned">' + item.name + '</a>')[0];
+  //       }
+  //     }
+  //   ]
+  // }
 
   isPastedEvent($ele, cb) {
     let ctrlDown = false,

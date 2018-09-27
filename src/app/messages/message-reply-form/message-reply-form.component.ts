@@ -87,7 +87,7 @@ export class MessageReplyFormComponent implements OnInit {
           onCreateLink: function (originalLink) {
             return originalLink; // return original link 
           },
-          hint: _that._utils.hint()
+         // hint: _that._utils.hint()
         }
       });
     

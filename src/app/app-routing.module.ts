@@ -5,9 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { RoleGuard } from './_guards/role.guard';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsBuilderComponent } from './charts-builder/charts-builder.component';
-import { MyWatchListComponent } from './my-watch-list/my-watch-list.component';
 import { dynamicLayout} from './services/user';
 
 
@@ -42,7 +40,7 @@ const routes: Routes = [
     path: 'tpa-company',
     canActivate: [RoleGuard],
     data: { role: 3, breadcrumb: 'Home' },
-    loadChildren: 'app/tpacompany/tpa.module#TpaModule'
+    loadChildren: 'app/tpacompany/tpacompany.module#TpaCompanyModule'
   },
   {
     path: 'surveyor',
@@ -67,11 +65,6 @@ const routes: Routes = [
         loadChildren: 'app/help/help.module#HelpModule'
       },
       {
-        path: 'lockers',
-        data: { breadcrumb: 'Lockers' },
-        loadChildren: 'app/lockers/lockers.module#LockersModule'
-      },
-      {
         path: 'settings',
         data: { breadcrumb: 'Settings' },
         loadChildren: 'app/settings/settings.module#SettingsModule'
@@ -81,22 +74,6 @@ const routes: Routes = [
   {
     path: '',
     component: MainLayoutComponent,
-    children: [
-      {
-        path: 'insights',
-        data: { breadcrumb: 'insights' },
-        loadChildren: 'app/insights/insights.module#InsightsModule',
-      },
-      {
-        path: '',
-        loadChildren: 'app/profiles/profiles.module#ProfilesModule',
-      },
-      {
-        path: "watch-list",
-        data: { breadcrumb: 'watch-list' },
-        component: MyWatchListComponent
-      },
-    ]
   },
   { path: "contact-us", component: ContactUsComponent },
   { path: "charts-builder", component: ChartsBuilderComponent },

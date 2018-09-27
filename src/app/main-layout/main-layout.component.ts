@@ -9,8 +9,6 @@ import { UserService } from '../services/user.service';
 import { NotificationService } from '../services/notifications.service';
 import { MessagesService } from '../services/messages.service';
 import { HelpService } from '../services/help.service';
-import { ComposeService } from '../services/compose.service';
-import { LockersService } from '../services/lockers.service';
 import { BreadcrumbsService, IBreadcrumb } from 'ng2-breadcrumbs';
 @Component({
   selector: 'app-main-layout',
@@ -44,8 +42,6 @@ export class MainLayoutComponent implements OnInit,AfterViewInit{
     private _notificationapi: NotificationService,
     private _messagesService: MessagesService,
     private _helpService: HelpService,
-    private _composeapi: ComposeService,
-    private _lockerService: LockersService,
     private breadcrumbsService:BreadcrumbsService,
     private elementRef: ElementRef,
     viewContainerRef: ViewContainerRef) {
@@ -104,12 +100,6 @@ export class MainLayoutComponent implements OnInit,AfterViewInit{
         } else {
           this.notificationCount = data.count;
           this.notificationData = data.data;
-        }
-      });
-      this._lockerService.lockersCount$(this.currentUser.user.userid, ).subscribe(data => {
-        if (data.success === false) {
-        } else {
-          this.lockersCount = data.data.count;
         }
       });
       this.getAvatar();

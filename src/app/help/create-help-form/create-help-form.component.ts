@@ -86,7 +86,7 @@ export class CreateHelpFormComponent implements OnInit {
               _that.uploadFile(files, this);
           },
         },
-        hint: that.utils.hint()
+        //hint: that.utils.hint()
       });
     });
 

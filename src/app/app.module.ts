@@ -19,15 +19,12 @@ import { RepeatModule } from './repeat/repeat.module';
 import { ContactUsFormService } from './services/contact_us/contact-us-form.service';
 import { UserService } from './services/user.service';
 import { ShareButtonsModule } from '@ngx-share/buttons';
-import { ComposeService } from './services/compose.service';
 import { UtilsService } from './services/utils.service';
 import { DatePipe } from '@angular/common';
-import { CommodityService } from './services/insights/commodity.service';
 import { ScriptService } from './services/script.service';
 import { NotificationService } from './services/notifications.service';
 import { MessagesService } from './services/messages.service';
 import { HelpService } from './services/help.service';
-import { LockersService } from './services/lockers.service';
 import { MatAutocompleteModule, MatInputModule, MatSelectModule } from '@angular/material';
 import { HelpFormService } from './services/help/help-form.service';
 import {FileDropDirective,FileSelectDirective} from 'ng2-file-upload';
@@ -36,16 +33,10 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChartsBuilderComponent } from './charts-builder/charts-builder.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { NgxUIModule } from '@swimlane/ngx-ui';
-import { InsightService } from './services/insights/insight.service';
-import { MyWatchListComponent } from './my-watch-list/my-watch-list.component';
 import { UserFormService } from './services/users/user-form.service';
-import { SectorsService } from './services/sectors.service';
-import { SubsectorsService } from './services/subsectors.service';
 import { CountriesService } from './services/countries.service';
 import { StatesService } from './services/states.service';
-import { CompanyService } from './services/company.service';
 import { MessagesFormService } from './services/messages/messages-form.service';
-import { LockerFormService } from './services/lockers/locker-form.service';
 import { dynamicLayout} from './services/user';
 
 @NgModule({
@@ -55,7 +46,6 @@ import { dynamicLayout} from './services/user';
     LayoutComponent,
     ContactUsComponent,
     ChartsBuilderComponent,
-    MyWatchListComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'Vinod-Revere'}),
@@ -81,28 +71,21 @@ import { dynamicLayout} from './services/user';
     AuthService, 
     ContactUsFormService, 
     UserService, 
-    SectorsService,
-    SubsectorsService,
     CountriesService,
     StatesService,
-    CompanyService,
     UserFormService,
-    ComposeService, 
     UtilsService, 
     DatePipe, 
-    CommodityService, 
     ScriptService,
     NotificationService, 
     MessagesService, 
     HelpService, 
-    LockersService, 
     HelpFormService,
-    InsightService,
     MessagesFormService,
     { provide: HTTP_INTERCEPTORS, useClass: NgProgressInterceptor, multi: true },
     FileDropDirective,
     FileSelectDirective,
-    LockerFormService
+
   ],
   bootstrap: [AppComponent]
 })

@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { UserService } from './../../services/user.service';
 import { Subscription } from 'rxjs/Subscription';
-import { SectorsService } from '../../services/sectors.service';
-import { SubsectorsService } from '../../services/subsectors.service';
 import { CountriesService } from '../../services/countries.service';
 import { StatesService } from '../../services/states.service';
 import { ENV } from './../../env.config';
@@ -41,8 +39,6 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder,
     private router: Router,
     private _userapi: UserService,
-    private _sectorService: SectorsService,
-    private _subsectorService: SubsectorsService,
     private _stateService: StatesService,
     private _countriesrService: CountriesService,
     public toastr: ToastsManager,
@@ -57,14 +53,6 @@ export class SignupComponent implements OnInit {
     // Set initial form data
     this.formEvent = this._setFormEvent();
     this._buildForm();
-
-    //Fetch sectors
-    this._sectorService.getSector$().subscribe(data => {
-      if (data.success === false) {
-      } else {
-        this.sectors = data.data;
-      }
-    });
 
     //Fetch Countries
     this._countriesrService.getCountries$().subscribe(data => {
@@ -143,26 +131,6 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  public sectorChange(sectorVal) {
-    if (sectorVal !== 'null') {
-      this._subsectorService.getSubsector$(sectorVal).subscribe(data => {
-        if (data.success === false) {
-        } else {
-
-          this.subsectors = data.data;
-        }
-      });
-    }
-    else {
-      this.subsectors = [];
-    }
-  }
-
-  public sectorChange1(sectorVal) {
-    this.clientForm.controls['subsector_id'].patchValue(null);
-    this.sectorChange(sectorVal)
-  }
-
   public countryChange(countryVal) {
     if (countryVal !== 'null') {
       this._stateService.getState$(countryVal).subscribe(data => {
@@ -192,7 +160,7 @@ export class SignupComponent implements OnInit {
       // If editing existing event, create new
       // FormEventModel from existing data
       if (this.event.sector_id) {
-        this.sectorChange(this.event.sector_id)
+        //this.sectorChange(this.event.sector_id)
       }
       if (this.event.country_id) {
         this.countryChange(this.event.country_id)

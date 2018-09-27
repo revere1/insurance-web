@@ -4,11 +4,8 @@ import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 import { UserService } from './../../../services/user.service';
 import { Subscription } from 'rxjs/Subscription';
-import { SectorsService } from './../../../services/sectors.service';
-import { SubsectorsService } from './../../../services/subsectors.service';
 import { CountriesService } from './../../../services/countries.service';
 import { StatesService } from './../../../services/states.service';
-import { CompanyService } from '../../../services/company.service';
 import { ENV } from './../../../env.config';
 import { UtilsService } from '../../../services/utils.service';
 import { UserModel, UserFormModel } from '../../../models/user.model';
@@ -52,9 +49,6 @@ export class EditProfileComponent implements OnInit {
     private _userFormService: UserFormService,
     private _utils: UtilsService,
     private _userApi: UserService,
-    private _sectorApi: SectorsService,
-    private _subsectorApi: SubsectorsService,
-    private _companyApi: CompanyService,
     private _stateApi: StatesService,
     private _countriesApi: CountriesService,
     private _auth: AuthService,
@@ -80,22 +74,6 @@ export class EditProfileComponent implements OnInit {
     // Set initial form data
     this.formEvent = this._setFormEvent();
     this._buildForm();
-
-    //Fetch sectors
-    this._sectorApi.getSector$().subscribe(data => {
-      if (data.success === false) {
-      } else {
-        this.sectors = data.data;
-      }
-    });
-
-    //Fetch companies
-    this._companyApi.getcompanies$().subscribe(data => {
-      if (data.success === false) {
-      } else {
-        this.companies = data.data;
-      }
-    });
 
     //Fetch Countries
     this._countriesApi.getCountries$().subscribe(data => {
@@ -205,23 +183,9 @@ export class EditProfileComponent implements OnInit {
     }
   };
 
-  public sectorChange(sectorVal) {
-    if (sectorVal !== 'null') {
-      this._subsectorApi.getSubsector$(sectorVal).subscribe(data => {
-        if (data.success === false) {
-        } else {
-          this.subsectors = data.data;
-        }
-      });
-    }
-    else {
-      this.subsectors = [];
-    }
-  }
 
   public sectorChange1(sectorVal) {
     this.userProfileForm.controls['subsector_id'].patchValue(null);
-    this.sectorChange(sectorVal)
   }
 
   public countryChange(countryVal) {
@@ -252,7 +216,6 @@ export class EditProfileComponent implements OnInit {
       // If editing existing event, create new
       // FormEventModel from existing data
       if (this.event.sector_id) {
-        this.sectorChange(this.event.sector_id)
       }
       if (this.event.country_id) {
         this.countryChange(this.event.country_id)
