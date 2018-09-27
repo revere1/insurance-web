@@ -59,4 +59,4 @@ import { UserFormService } from '../services/users/user-form.service';
     SafeHtmlPipe
   ]
 })
-export class TpaComapanyModule { }
+export class TpaCompanyModule { }
