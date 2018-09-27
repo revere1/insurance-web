@@ -11,11 +11,11 @@ const routes: Routes = [
   },
   {
     path: '', component: TpaLayoutComponent,
-    // children: [
+    children: [
      
-    //   { path: 'home', component: DashboardComponent },
-    //   { path: 'insights', loadChildren: 'app/tpa/tpa-insights/tpa-insights.module#TpaInsightsModule' }
-    // ]
+      { path: 'home', component: DashboardComponent },
+      { path: 'insights', loadChildren: 'app/analyst/analyst-insights/analyst-insights.module#AnalystInsightsModule' }
+    ]
   }
 ];
 
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class TpaRoutingModule { }
+export class TpaCompanyRoutingModule { }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, DatePipe } from '@angular/common';
-import { TpaRoutingModule } from './tpa-routing.module';
+import { TpaCompanyRoutingModule } from './tpaCompany-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RepeatModule } from '../repeat/repeat.module';
 import { ScriptService } from '../services/script.service';
@@ -29,7 +29,7 @@ import { UserFormService } from '../services/users/user-form.service';
 @NgModule({
   imports: [
     CommonModule,
-    TpaRoutingModule,
+    TpaCompanyRoutingModule,
     ReactiveFormsModule,
     RepeatModule,
     FormsModule,
@@ -59,4 +59,4 @@ import { UserFormService } from '../services/users/user-form.service';
     SafeHtmlPipe
   ]
 })
-export class TpaModule { }
+export class TpaComapanyModule { }
