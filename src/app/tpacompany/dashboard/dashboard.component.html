@@ -1,0 +1,78 @@
+<div class="col-lg-3 col-xs-6">
+    <div class="small-box bg-yellow">
+        <div class="inner">
+            <h3>{{drafts.length}}</h3>
+            <p>Draft</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-android-drafts"></i>
+        </div>
+        <a [routerLink]='["/analyst/insights/my-insights"]' class="small-box-footer" [queryParams]="{ status:'drafts'}">More info
+            <i class="fa fa-arrow-circle-right"></i>
+        </a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <div class="small-box bg-green">
+        <div class="inner">
+            <h3>{{remodify.length}}
+                <sup style="font-size: 20px"></sup>
+            </h3>
+            <p>Needs Revisiting</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-android-drafts"></i>
+        </div>
+        <a class="small-box-footer" [routerLink]='["/analyst/insights/my-insights"]' [queryParams]="{ status: 'revisiting' }">More info
+            <i class="fa fa-arrow-circle-right"></i>
+        </a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <div class="small-box bg-aqua">
+        <div class="inner">
+            <h3>{{assigned.length}}</h3>
+            <p>OnGoing Survey</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-person-add"></i>
+        </div>
+        <a class="small-box-footer" [routerLink]='["/analyst/insights/my-insights"]' [queryParams]="{ status: 'ongoing-reviews' }">More info
+            <i class="fa fa-arrow-circle-right"></i>
+        </a>
+    </div>
+</div>
+<div class="col-lg-3 col-xs-6">
+    <div class="small-box bg-red">
+        <div class="inner">
+            <h3>{{published.length}}</h3>
+            <p>Survey Completed</p>
+        </div>
+        <div class="icon">
+            <i class="ion ion-man"></i>
+        </div>
+        <a class="small-box-footer" [routerLink]='["/analyst/insights/my-insights"]' [queryParams]="{ status: 'published' }">More info
+            <i class="fa fa-arrow-circle-right"></i>
+        </a>
+    </div>
+</div>
+<!-- <div class="profile-tabs">
+    <div class="my-tabs">
+        <ul id="tabs" class="nav nav-tabs   user user-tabs" data-tabs="tabs">
+            <li class="active">
+                <a href="#overview" data-toggle="tab">Trending</a>
+            </li>
+            <li>
+                <a href="#insights" data-toggle="tab">Latest</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="my-tab-content" class="tab-content">
+    <div class="tab-pane" id="insights">
+        <app-latest-insights></app-latest-insights>
+    </div>
+    <div class="tab-pane active" id="overview">
+        <app-top-insights></app-top-insights>
+    </div>
+</div> -->

@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": {
-            "en": "Insights",
+            "en": "Menu1",
             "de": "DE_Insights"
         },
         "routerLink": false,
@@ -40,7 +40,7 @@
     {
         "id": 3,
         "name": {
-            "en": "Messages",
+            "en": "Menu2",
             "de": "DE_Messages"
         },
         "routerLink": "/messages/read/",
@@ -49,7 +49,7 @@
     {
         "id": 4,
         "name": {
-            "en": "Notifications",
+            "en": "Menu3",
             "de": "DE_Notifications"
         },
         "routerLink": "/settings/notifications",
@@ -58,7 +58,7 @@
     {
         "id": 5,
         "name": {
-            "en": "Help",
+            "en": "Menu4",
             "de": "DE_Help"
         },
         "routerLink": "/help",

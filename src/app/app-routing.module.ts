@@ -9,10 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsBuilderComponent } from './charts-builder/charts-builder.component';
 import { MyWatchListComponent } from './my-watch-list/my-watch-list.component';
 import { dynamicLayout} from './services/user';
-import { AdminLayoutComponent } from './admin/admin-layout/admin-layout.component';
-import { AnalystLayoutComponent } from "./analyst/analyst-layout/analyst-layout.component";
-import { ClientLayoutComponent } from "./client/client-layout/client-layout.component";
-import { EditorierLayoutComponent } from "./editorier/editorier-layout/editorier-layout.component";
+
 
 const routes: Routes = [
   {
@@ -39,19 +36,19 @@ const routes: Routes = [
     path: 'customer',
     canActivate: [RoleGuard],
     data: { role: 2, breadcrumb: 'Home' },
-    loadChildren: 'app/client/client.module#ClientModule'
+    loadChildren: 'app/customer/customer.module#CustomerModule'
   },
   {
     path: 'tpa-company',
     canActivate: [RoleGuard],
     data: { role: 3, breadcrumb: 'Home' },
-    loadChildren: 'app/analyst/analyst.module#AnalystModule'
+    loadChildren: 'app/tpacompany/tpa.module#TpaModule'
   },
   {
     path: 'surveyor',
     canActivate: [RoleGuard],
     data: { role: 4, breadcrumb: 'Home' },
-    loadChildren: 'app/editorier/editorier.module#EditorierModule'
+    loadChildren: 'app/surveyor/surveyor.module#SurveyorModule'
   },
   {
     path: '',

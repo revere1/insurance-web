@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": {
-            "en": "Help",
+            "en": "Menu1",
             "de": "DE_Help"
         },
         "routerLink": "/help",
@@ -20,7 +20,7 @@
     {
         "id": 2,
         "name": {
-            "en": "Messages",
+            "en": "Menu2",
             "de": "DE_Messages"
         },
         "routerLink": "/messages/read/",
@@ -29,7 +29,7 @@
     {
         "id": 3,
         "name": {
-            "en": "All insights",
+            "en": "Menu3",
             "de": "DE_All insights"
         },
         "routerLink": "/insights",

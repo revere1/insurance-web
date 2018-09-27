@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseService } from '../services/basic.service';
 import { AdminLayoutComponent } from '../admin/admin-layout/admin-layout.component';
-import { ClientLayoutComponent } from '../client/client-layout/client-layout.component';
-import { AnalystLayoutComponent } from '../analyst/analyst-layout/analyst-layout.component';
-import { EditorierLayoutComponent } from '../editorier/editorier-layout/editorier-layout.component';
+import { CustomerLayoutComponent } from '../customer/customer-layout/customer-layout.component';
+import { TpaLayoutComponent } from '../tpacompany/tpa-layout/tpa-layout.component';
+import { SurveyorLayoutComponent } from '../surveyor/surveyor-layout/surveyor-layout.component';
 
 declare var $:any;
 
@@ -52,13 +52,13 @@ export class SidebarComponent implements OnInit {
                 component = AdminLayoutComponent;
             }
             else if (user.user.access_level === 2) {
-                component = ClientLayoutComponent;
+                component = CustomerLayoutComponent;
             }
             else if (user.user.access_level === 3) {
-                component = AnalystLayoutComponent;
+                component = TpaLayoutComponent;
             }
             else if (user.user.access_level === 4) {
-                component = EditorierLayoutComponent;
+                component = SurveyorLayoutComponent;
             }
         } else {
             //return HomeComponent

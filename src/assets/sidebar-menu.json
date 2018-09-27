@@ -11,7 +11,7 @@
     {
         "id": 2,
         "name": {
-            "en": "Insights",
+            "en": "Menu1",
             "de": "DE_Insights"
         },
         "routerLink": false,
@@ -50,7 +50,7 @@
     {
         "id": 3,
         "name": {
-            "en": "Tickers",
+            "en": "Menu2",
             "de": "DE_Tickers"
         },
         "routerLink": "/admin/tickers",
@@ -59,7 +59,7 @@
     {
         "id": 4,
         "name": {
-            "en": "Locker",
+            "en": "Menu3",
             "de": "DE_Locker"
         },
         "routerLink": "/lockers",
@@ -68,7 +68,7 @@
     {
         "id": 5,
         "name": {
-            "en": "Messages",
+            "en": "Menu4",
             "de": "DE_Messages"
         },
         "routerLink": "/messages/read/",
@@ -86,7 +86,7 @@
             {
                 "id": 1,
                 "name": {
-                    "en": "Clients",
+                    "en": "Customers",
                     "de": "DE_Clients"
                 },
                 "routerLink": "/admin/clients",
@@ -95,7 +95,7 @@
             {
                 "id": 2,
                 "name": {
-                    "en": "Analysts",
+                    "en": "Surveyiers",
                     "de": "DE_Analysts"
                 },
                 "routerLink": "/admin/analysts",
@@ -104,7 +104,7 @@
             {
                 "id": 3,
                 "name": {
-                    "en": "Management",
+                    "en": "TPA-Management",
                     "de": "DE_Management"
                 },
                 "routerLink": "/admin/management",
@@ -113,7 +113,7 @@
             {
                 "id": 4,
                 "name": {
-                    "en": "Editoriers",
+                    "en": "Management",
                     "de": "DE_Editoriers"
                 },
                 "routerLink": "/admin/editoriers",
@@ -124,7 +124,7 @@
     {
         "id": 7,
         "name": {
-            "en": "Help",
+            "en": "Menu5",
             "de": "DE_Help"
         },
         "routerLink": "/help",
@@ -160,33 +160,9 @@
                 "routerLink": "/settings/change-password",
                 "icon": "fa-pencil"
             },
-            {
-                "id": 11,
-                "name": {
-                    "en": "Analyst-Companies",
-                    "de": "DE_Analyst-Companies"
-                },
-                "routerLink": "/admin/analyst-companies",
-                "icon": "fa-users"
-            },
-            {
-                "id": 4,
-                "name": {
-                    "en": "Sector",
-                    "de": "DE_Sector"
-                },
-                "routerLink": "/admin/sectors",
-                "icon": "fa-users"
-            },
-            {
-                "id": 5,
-                "name": {
-                    "en": "Sub-Sector",
-                    "de": "DE_Sub-Sector"
-                },
-                "routerLink": "/admin/sub-sector",
-                "icon": "fa-users"
-            },
+         
+          
+         
             {
                 "id": 6,
                 "name": {
@@ -205,25 +181,9 @@
                 "routerLink": "/admin/states",
                 "icon": "fa-users"
             },
-            {
-                "id": 8,
-                "name": {
-                    "en": "Notifications",
-                    "de": "DE_Notifications"
-                },
-                "routerLink": "/settings/notifications",
-                "icon": "fa-users"
-            },
+          
             
-            {
-                "id": 9,
-                "name": {
-                    "en": "Regions",
-                    "de": "DE_Regions"
-                },
-                "routerLink": "/admin/regions",
-                "icon": "fa-users"
-            },
+         
             {
                 "id": 10,
                 "name": {

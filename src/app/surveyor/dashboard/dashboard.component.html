@@ -1,0 +1,28 @@
+<div class="col-lg-4 col-xs-6">
+  <div class="small-box bg-aqua">
+    <div class="inner">
+      <h3>{{remodify.length}}</h3>
+      <p>Insurance Policy</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-person-add"></i>
+    </div>
+    <a class="small-box-footer" [routerLink]='["/editorier/insights/my-insights"]' [queryParams]="{ status: 'ongoing-reviews' }">More info
+      <i class="fa fa-arrow-circle-right"></i>
+    </a>
+  </div>
+</div>
+<div class="col-lg-4 col-xs-6">
+  <div class="small-box bg-red">
+    <div class="inner">
+      <h3>{{published.length}}</h3>
+      <p>Survey Insurance Policy</p>
+    </div>
+    <div class="icon">
+      <i class="ion ion-man"></i>
+    </div>
+    <a class="small-box-footer" [routerLink]='["/editorier/insights/my-insights"]' [queryParams]="{ status: 'published' }">More info
+      <i class="fa fa-arrow-circle-right"></i>
+    </a>
+  </div>
+</div>
