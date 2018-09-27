@@ -7,7 +7,6 @@ import { UserService } from '../../services/user.service';
 import { ENV } from './../../env.config';
 import { HelpService } from '../../services/help.service';
 import { UtilsService } from '../../services/utils.service';
-import { ComposeService } from '../../services/compose.service';
 import { NotificationService } from '../../services/notifications.service';
 import { Router } from '@angular/router';
 import { BreadcrumbsService, IBreadcrumb } from 'ng2-breadcrumbs';
@@ -38,7 +37,6 @@ export class TpaLayoutComponent implements OnInit, AfterViewInit {
     public script: ScriptService,
     private _notificationApi: NotificationService,
     private _userApi: UserService,
-    private _composeApi: ComposeService,
     private _breadcrumbsService: BreadcrumbsService,
     private _elementRef: ElementRef,
     private _viewContainerRef: ViewContainerRef,
