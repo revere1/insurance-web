@@ -8,11 +8,11 @@ import { BreadcrumbsService } from 'ng2-breadcrumbs';
 import { UserModel } from '../../../models/user.model';
 
 @Component({
-  selector: 'app-update-analyst',
-  templateUrl: './update-analyst.component.html',
-  styleUrls: ['./update-analyst.component.css']
+  selector: 'app-update-tpacompanies',
+  templateUrl: './update-tpacompanies.component.html',
+  styleUrls: ['./update-tpacompanies.component.css']
 })
-export class UpdateAnalystComponent implements OnInit {
+export class UpdateTpacompaniesComponent implements OnInit {
 
   pageTitle = 'Update Event';
   routeSub: Subscription;

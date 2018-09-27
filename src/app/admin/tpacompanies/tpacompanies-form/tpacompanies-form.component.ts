@@ -2,19 +2,19 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { UserService } from './../../../services/user.service';
+import { UserService } from '../../../services/user.service';
 import { Subscription } from 'rxjs/Subscription';
 import { CountriesService } from '../../../services/countries.service';
 import { StatesService } from '../../../services/states.service';
-import { ENV } from './../../../env.config';
+import { ENV } from '../../../env.config';
 import { UserModel, UserFormModel } from '../../../models/user.model';
 import { UserFormService } from '../../../services/users/user-form.service';
 @Component({
-  selector: 'app-analyst-form',
-  templateUrl: './analyst-form.component.html',
-  styleUrls: ['./analyst-form.component.css']
+  selector: 'app-tpacompanies-form',
+  templateUrl: './tpacompanies-form.component.html',
+  styleUrls: ['./tpacompanies-form.component.css']
 })
-export class AnalystFormComponent implements OnInit {
+export class TpacompaniesFormComponent implements OnInit {
 
   @Input() event: UserModel;
   isEdit: boolean;

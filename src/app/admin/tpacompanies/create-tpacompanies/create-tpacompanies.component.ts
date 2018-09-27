@@ -4,11 +4,11 @@ import { BreadcrumbsService } from 'ng2-breadcrumbs';
 import { UtilsService } from '../../../services/utils.service';
 
 @Component({
-  selector: 'app-create-analyst',
-  templateUrl: './create-analyst.component.html',
-  styleUrls: ['./create-analyst.component.css']
+  selector: 'app-create-tpacompanies',
+  templateUrl: './create-tpacompanies.component.html',
+  styleUrls: ['./create-tpacompanies.component.css']
 })
-export class CreateAnalystComponent implements OnInit {
+export class CreateTpacompaniesComponent implements OnInit {
 
   pageTitle = 'Create Event';
 

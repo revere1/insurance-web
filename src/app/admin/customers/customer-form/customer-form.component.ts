@@ -11,11 +11,11 @@ import { UserModel, UserFormModel } from '../../../models/user.model';
 import { UserFormService } from '../../../services/users/user-form.service';
 
 @Component({
-  selector: 'app-client-form',
-  templateUrl: './client-form.component.html',
-  styleUrls: ['./client-form.component.css']
+  selector: 'app-customer-form',
+  templateUrl: './customer-form.component.html',
+  styleUrls: ['./customer-form.component.css']
 })
-export class ClientFormComponent implements OnInit {
+export class CustomerFormComponent implements OnInit {
 
   @Input() event: UserModel;
   isEdit: boolean;

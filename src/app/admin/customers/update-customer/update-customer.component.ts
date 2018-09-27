@@ -1,18 +1,18 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { UserService } from './../../../services/user.service';
-import { UtilsService } from './../../../services/utils.service';
+import { UserService } from '../../../services/user.service';
+import { UtilsService } from '../../../services/utils.service';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { BreadcrumbsService } from 'ng2-breadcrumbs';
 import { UserModel } from '../../../models/user.model';
 
 @Component({
-  selector: 'app-update-client',
-  templateUrl: './update-client.component.html',
-  styleUrls: ['./update-client.component.css']
+  selector: 'app-update-customer',
+  templateUrl: './update-customer.component.html',
+  styleUrls: ['./update-customer.component.css']
 })
-export class UpdateClientComponent implements OnInit {
+export class UpdateCustomerComponent implements OnInit {
 
   pageTitle = 'Update Event';
   routeSub: Subscription;

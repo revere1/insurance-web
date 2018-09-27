@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AnalystsComponent } from './analysts/analysts.component';
-import { ClientsComponent } from './clients/clients.component';
-import { CreateClientComponent } from './clients/create-client/create-client.component';
-import { UpdateClientComponent } from './clients/update-client/update-client.component';
-import { ClientsListComponent } from './clients/clients-list/clients-list.component';
+import { AnalystsComponent } from './tpacompanies/tpacompanies.component';
+import { CustomersComponent } from './customers/customers.component';
+import { CreateClientComponent } from './customers/create-customer/create-customer.component';
+import { UpdateCustomerComponent } from './customers/update-customer/update-customer.component';
+import { CustomersListComponent } from './customers/customers-list/customers-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AdminLayoutComponent } from './admin-layout/admin-layout.component';
 import { CreatecountriesComponent } from './countries/createcountries/createcountries.component';
@@ -14,10 +14,10 @@ import { StatesComponent } from './states/states.component';
 import { StatesListComponent } from './states/states-list/states-list.component';
 import { CreateStatesComponent } from './states/create-states/create-states.component';
 import { UpdateStatesComponent } from './states/update-states/update-states.component';
-import { AnalystsListComponent } from './analysts/analysts-list/analysts-list.component';
-import { CreateAnalystComponent } from './analysts/create-analyst/create-analyst.component';
-import { UpdateAnalystComponent } from './analysts/update-analyst/update-analyst.component';
-import { PrivillegesComponent } from './clients/privilleges/privilleges.component';
+import { TpacompaniesListComponent } from './tpacompanies/tpacompanies-list/tpacompanies-list.component';
+import { CreateTpacompaniesComponent } from './tpacompanies/create-tpacompanies/create-tpacompanies.component';
+import { UpdateTpacompaniesComponent } from './tpacompanies/update-tpacompanies/update-tpacompanies.component';
+import { PrivillegesComponent } from './customers/privilleges/privilleges.component';
 import { ContactUsListComponent } from './contact-us-list/contact-us-list.component';
 
 const AdminRoutes: Routes = [
@@ -32,12 +32,12 @@ const AdminRoutes: Routes = [
       
       { path: 'home', component: DashboardComponent },
       {
-        path: 'clients', component: ClientsComponent,
+        path: 'clients', component: CustomersComponent,
         data: {
           breadcrumb: 'Clients'
         },
         children: [
-          { path: '', component: ClientsListComponent },
+          { path: '', component: CustomersListComponent },
           {
             path: 'create', component: CreateClientComponent,
             data: {
@@ -45,7 +45,7 @@ const AdminRoutes: Routes = [
             }
           },
           {
-            path: 'update/:id', component: UpdateClientComponent,
+            path: 'update/:id', component: UpdateCustomerComponent,
             data: {
               breadcrumb: 'Update'
             }
@@ -62,7 +62,7 @@ const AdminRoutes: Routes = [
 
     
       {
-        path: 'countries', component: ClientsComponent,
+        path: 'countries', component: CustomersComponent,
         data: {
           breadcrumb: 'Countries'
         },
@@ -88,15 +88,15 @@ const AdminRoutes: Routes = [
           breadcrumb: 'Analysts'
         },
         children: [
-          { path: '', component: AnalystsListComponent },
+          { path: '', component: TpacompaniesListComponent },
           {
-            path: 'create', component: CreateAnalystComponent,
+            path: 'create', component: CreateTpacompaniesComponent,
             data: {
               breadcrumb: 'Create'
             }
           },
           {
-            path: 'update/:id', component: UpdateAnalystComponent,
+            path: 'update/:id', component: UpdateTpacompaniesComponent,
             data: {
               breadcrumb: 'Update'
             }
@@ -104,7 +104,7 @@ const AdminRoutes: Routes = [
         ]
       },
       {
-        path: 'countries', component: ClientsComponent,
+        path: 'countries', component: CustomersComponent,
         data: {
           breadcrumb: 'Countries'
         },
@@ -161,10 +161,10 @@ const AdminRoutes: Routes = [
         }, loadChildren: 'app/admin/management/management.module#ManagementModule'
       },
       {
-        path: 'editoriers',
+        path: 'surveyor',
         data: {
           breadcrumb: 'Editoriers'
-        }, loadChildren: 'app/admin/editorier/editorier.module#EditorierModule'
+        }, loadChildren: 'app/admin/surveyor/surveyor.module#SurveyorModule'
       },
       
     ]

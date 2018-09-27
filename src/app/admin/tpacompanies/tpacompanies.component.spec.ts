@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AnalystsComponent } from './analysts.component';
+import { AnalystsComponent } from './tpacompanies.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AnalystsComponent', () => {

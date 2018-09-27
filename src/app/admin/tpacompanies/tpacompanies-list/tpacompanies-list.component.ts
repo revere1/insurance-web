@@ -24,11 +24,11 @@ class DataTablesResponse {
 
 
 @Component({
-  selector: 'app-analysts-list',
-  templateUrl: './analysts-list.component.html',
-  styleUrls: ['./analysts-list.component.css']
+  selector: 'app-tpacompanies-list',
+  templateUrl: './tpacompanies-list.component.html',
+  styleUrls: ['./tpacompanies-list.component.css']
 })
-export class AnalystsListComponent implements OnInit {
+export class TpacompaniesListComponent implements OnInit {
 
   private allItems: {};
   public dtOptions: DataTables.Settings = {};
