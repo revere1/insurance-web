@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EditorierRoutingModule } from './editorier-routing.module';
+import { SurveyorRoutingModule } from './surveyor-routing.module';
 import { CreateEditorierComponent } from './create-editorier/create-editorier.component';
 import { EditoriersListComponent } from './editoriers-list/editoriers-list.component';
 import { UpdateEditorierComponent } from './update-editorier/update-editorier.component';
@@ -12,7 +12,7 @@ import { EditorierFormComponent } from './editorier-form/editorier-form.componen
 @NgModule({
   imports: [
     CommonModule,
-    EditorierRoutingModule,
+    SurveyorRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     DataTablesModule,
@@ -20,4 +20,4 @@ import { EditorierFormComponent } from './editorier-form/editorier-form.componen
   ],
   declarations: [CreateEditorierComponent, EditoriersListComponent, UpdateEditorierComponent, EditorierFormComponent]
 })
-export class EditorierModule { }
+export class SurveyorModule { }

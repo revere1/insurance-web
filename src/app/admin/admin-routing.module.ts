@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AnalystsComponent } from './tpacompanies/tpacompanies.component';
+import { TpacompaniesComponent } from './tpacompanies/tpacompanies.component';
 import { CustomersComponent } from './customers/customers.component';
-import { CreateClientComponent } from './customers/create-customer/create-customer.component';
+import { CreateCustomerComponent } from './customers/create-customer/create-customer.component';
 import { UpdateCustomerComponent } from './customers/update-customer/update-customer.component';
 import { CustomersListComponent } from './customers/customers-list/customers-list.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -39,7 +39,7 @@ const AdminRoutes: Routes = [
         children: [
           { path: '', component: CustomersListComponent },
           {
-            path: 'create', component: CreateClientComponent,
+            path: 'create', component: CreateCustomerComponent,
             data: {
               breadcrumb: 'Create'
             }
@@ -83,7 +83,7 @@ const AdminRoutes: Routes = [
         ]
       },
       {
-        path: 'analysts', component: AnalystsComponent,
+        path: 'analysts', component: TpacompaniesComponent,
         data: {
           breadcrumb: 'Analysts'
         },

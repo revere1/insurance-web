@@ -12,12 +12,9 @@ const routes: Routes = [
     path: '', component: CustomerLayoutComponent,
 
     children: [
-      { path: 'insights', loadChildren: 'app/customer/customer-insights/customer-insights.module#CustomerInsightsModule' },
       {
         path: 'home',
-        children: [
-          { path: '', loadChildren: 'app/dashboard/dashboard.module#DashboardModule' }
-        ]
+      
       },
     ]
   }
