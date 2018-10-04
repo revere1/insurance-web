@@ -30,10 +30,10 @@ export class SidebarComponent implements OnInit {
     initData() {
         let user = JSON.parse(localStorage.getItem('currentUser'));
         if (user) {
-            if (user.user.access_level === 1)  this.dynamicSideBar = '/assets/sidebar-menu.json';
-            else if (user.user.access_level === 2)  this.dynamicSideBar = '/assets/client_sidebar.json';
-            else if (user.user.access_level === 3)  this.dynamicSideBar = '/assets/analyst_sidebar.json';
-            else if (user.user.access_level === 4)  this.dynamicSideBar = '/assets/editorier_sidebar.json';
+            if (user.user.access_level === 1)  this.dynamicSideBar = '/assets/admin-menu.json';
+            else if (user.user.access_level === 2)  this.dynamicSideBar = '/assets/customer_sidebar.json';
+            else if (user.user.access_level === 3)  this.dynamicSideBar = '/assets/garage_sidebar.json';
+            else if (user.user.access_level === 4)  this.dynamicSideBar = '/assets/surveyor_sidebar.json';
         } else {
             this.dynamicSideBar = '/assets/sidebar.json'
         }   
