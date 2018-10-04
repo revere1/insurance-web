@@ -9,10 +9,66 @@
         "icon": "fa fa-fw fa-home"
     },
     {
+        "id": 6,
+        "name": {
+            "en": "Users",
+            "de": "DE_Users"
+        },
+        "routerLink": false,
+        "icon": "fa-gear",
+        "sublinks": [
+            {
+                "id": 1,
+                "name": {
+                    "en": "Customers",
+                    "de": "DE_Customers"
+                },
+                "routerLink": "/admin/clients",
+                "icon": "fa-users"
+            },
+            {
+                "id": 1,
+                "name": {
+                    "en": "Garage",
+                    "de": "DE_Garage"
+                },
+                "routerLink": "/admin/clients",
+                "icon": "fa-users"
+            },
+            {
+                "id": 2,
+                "name": {
+                    "en": "Surveyiers",
+                    "de": "DE_Analysts"
+                },
+                "routerLink": "/admin/analysts",
+                "icon": "fa-users"
+            },
+            {
+                "id": 3,
+                "name": {
+                    "en": "TPA-Management",
+                    "de": "DE_Management"
+                },
+                "routerLink": "/admin/management",
+                "icon": "fa-users"
+            },
+            {
+                "id": 4,
+                "name": {
+                    "en": "Management",
+                    "de": "DE_Editoriers"
+                },
+                "routerLink": "/admin/editoriers",
+                "icon": "fa-users"
+            }
+        ]
+    },
+    {
         "id": 2,
         "name": {
-            "en": "Menu1",
-            "de": "DE_Insights"
+            "en": "Jobs",
+            "de": "DE_Jobs"
         },
         "routerLink": false,
         "icon": "fa fa-fw fa-newspaper-o",
@@ -50,8 +106,8 @@
     {
         "id": 3,
         "name": {
-            "en": "Menu2",
-            "de": "DE_Tickers"
+            "en": "Claims",
+            "de": "DE_Claims"
         },
         "routerLink": "/admin/tickers",
         "icon": "fa-book"
@@ -59,8 +115,8 @@
     {
         "id": 4,
         "name": {
-            "en": "Menu3",
-            "de": "DE_Locker"
+            "en": "Insurance-Companies",
+            "de": "DE_Insurance-Companies"
         },
         "routerLink": "/lockers",
         "icon": "fa-briefcase"
@@ -68,69 +124,40 @@
     {
         "id": 5,
         "name": {
-            "en": "Menu4",
-            "de": "DE_Messages"
+            "en": "Surveyor",
+            "de": "DE_Surveyor"
         },
         "routerLink": "/messages/read/",
         "icon": "fa-users"
     },
-    {
-        "id": 6,
-        "name": {
-            "en": "Users",
-            "de": "DE_Users"
-        },
-        "routerLink": false,
-        "icon": "fa-gear",
-        "sublinks": [
-            {
-                "id": 1,
-                "name": {
-                    "en": "Customers",
-                    "de": "DE_Clients"
-                },
-                "routerLink": "/admin/clients",
-                "icon": "fa-users"
-            },
-            {
-                "id": 2,
-                "name": {
-                    "en": "Surveyiers",
-                    "de": "DE_Analysts"
-                },
-                "routerLink": "/admin/analysts",
-                "icon": "fa-users"
-            },
-            {
-                "id": 3,
-                "name": {
-                    "en": "TPA-Management",
-                    "de": "DE_Management"
-                },
-                "routerLink": "/admin/management",
-                "icon": "fa-users"
-            },
-            {
-                "id": 4,
-                "name": {
-                    "en": "Management",
-                    "de": "DE_Editoriers"
-                },
-                "routerLink": "/admin/editoriers",
-                "icon": "fa-users"
-            }
-        ]
-    },
+  
     {
         "id": 7,
         "name": {
-            "en": "Menu5",
-            "de": "DE_Help"
+            "en": "Invoices",
+            "de": "DE_Invoices"
         },
         "routerLink": "/help",
         "icon": "fa-users"
     },
-  
+    {
+        "id": 7,
+        "name": {
+            "en": "Payments",
+            "de": "DE_Payments"
+        },
+        "routerLink": "/help",
+        "icon": "fa-users"
+    },
+    {
+        "id": 7,
+        "name": {
+            "en": "Reports",
+            "de": "DE_Reports"
+        },
+        "routerLink": "/help",
+        "icon": "fa-users"
+    },
  
    
     {

@@ -11,32 +11,14 @@
     {
         "id": 2,
         "name": {
-            "en": "Menu1",
-            "de": "DE_Help"
+            "en": "My-Claims",
+            "de": "DE_My-claims"
         },
         "routerLink": "/help",
         "icon": "fa-dashboard"
     },
     {
-        "id": 2,
-        "name": {
-            "en": "Menu2",
-            "de": "DE_Messages"
-        },
-        "routerLink": "/messages/read/",
-        "icon": "fa-dashboard"
-    },
-    {
         "id": 3,
-        "name": {
-            "en": "Menu3",
-            "de": "DE_All insights"
-        },
-        "routerLink": "/insights",
-        "icon": "fa fa-fw fa-newspaper-o"
-    },
-    {
-        "id": 4,
         "name": {
             "en": "Settings",
             "de": "DE_Settings"
@@ -47,8 +29,8 @@
             {
                 "id": 1,
                 "name": {
-                    "en": "Profile",
-                    "de": "DE_Profile"
+                    "en": "My-Profile",
+                    "de": "DE_My-Profile"
                 },
                 "routerLink": "/settings/profile",
                 "icon": "fa-users"

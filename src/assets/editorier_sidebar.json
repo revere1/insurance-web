@@ -11,8 +11,8 @@
     {
         "id": 2,
         "name": {
-            "en": "Menu1",
-            "de": "DE_Insights"
+            "en": "My-Jobs",
+            "de": "DE_My-Jobs"
         },
         "routerLink": false,
         "icon": "fa fa-fw fa-newspaper-o",
@@ -40,8 +40,8 @@
     {
         "id": 3,
         "name": {
-            "en": "Menu2",
-            "de": "DE_Messages"
+            "en": "Garages",
+            "de": "DE_Garages"
         },
         "routerLink": "/messages/read/",
         "icon": "fa-dashboard"
@@ -49,23 +49,14 @@
     {
         "id": 4,
         "name": {
-            "en": "Menu3",
-            "de": "DE_Notifications"
+            "en": "Estimates",
+            "de": "DE_Estimates"
         },
         "routerLink": "/settings/notifications",
         "icon": "fa-users"
     },
     {
         "id": 5,
-        "name": {
-            "en": "Menu4",
-            "de": "DE_Help"
-        },
-        "routerLink": "/help",
-        "icon": "fa-users"
-    },
-    {
-        "id": 6,
         "name": {
             "en": "Settings",
             "de": "DE_Settings"

@@ -14,7 +14,6 @@ const routes: Routes = [
     children: [
      
       { path: 'home', component: DashboardComponent },
-      { path: 'insights', loadChildren: 'app/analyst/analyst-insights/analyst-insights.module#AnalystInsightsModule' }
     ]
   }
 ];

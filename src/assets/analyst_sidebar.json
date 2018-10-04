@@ -12,8 +12,8 @@
     {
         "id":2,
         "name": {
-            "en": "Menu1",
-            "de": "DE_Insights"
+            "en": "Proposals",
+            "de": "DE_Proposals"
         },
         "routerLink": false,
         "icon": "fa fa-fw fa-newspaper-o",
@@ -42,7 +42,7 @@
     {
         "id": 3,
         "name": {
-            "en": "Menu2",
+            "en": "Work-Orders",
             "de": "DE_Watch-List"
         },
         "routerLink": "/watch-list",
@@ -52,30 +52,13 @@
     {
         "id": 4,
         "name": {
-            "en": "Menu3",
+            "en": "Invoices",
             "de": "DE_Locker"
         },
         "routerLink": "/lockers",
         "icon": "fa-briefcase"
     },
-    {
-        "id": 5,
-        "name": {
-            "en": "Menu4",
-            "de": "DE_Messages"
-        },
-        "routerLink": "/messages/read/",
-        "icon": "fa-users"
-    },
-    {
-        "id": 6,
-        "name": {
-            "en": "Menu5",
-            "de": "DE_Help"
-        },
-        "routerLink": "/help",
-        "icon": "fa-dashboard"
-    },
+   
     {
         "id": 7,
         "name": {
